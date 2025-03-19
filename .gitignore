@@ -1,0 +1,7 @@
+build/**
+.vscode/**
+*.csv
+*.png
+*.py
+*.sh
+*.yuv
