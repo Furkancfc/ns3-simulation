@@ -1,5 +1,10 @@
-build/**
 .vscode/**
+build**/**
+build/**
+logs**/**
+CMakeFiles/**
+ns**/**
+results**/**
 *.csv
 *.png
 *.py

@@ -24,7 +24,6 @@
 #include "ns3/udp-server.h"
 #include "ns3/udp-socket-factory.h"
 
-
 // Propagation Loss Models
 #include "ns3/cost231-propagation-loss-model.h"
 #include "ns3/okumura-hata-propagation-loss-model.h"
@@ -47,12 +46,19 @@
 
 // Logging
 #include "ns3/log.h"
+#include "ns3/log-macros-enabled.h"
+#include "ns3/flow-monitor-helper.h"
+#include "ns3/flow-monitor.h"
 
 // Simulator
 #include "ns3/simulator.h"
 #include "ns3/node.h"
 #include "ns3/ptr.h"
-
+// Energy Module 
+#include "ns3/energy-module.h"
+#include "ns3/energy-source.h"
+#include "ns3/energy-harvester-helper.h"
+#include "ns3/energy-harvester-helper.h"
 // Standard Library
 #include <iostream>
 #include <fstream>
