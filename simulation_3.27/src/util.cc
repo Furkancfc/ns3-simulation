@@ -25,11 +25,6 @@ Ptr<energy::BasicEnergySource> GetNodeEnergySource(Ptr<Node> node){
     }
     return nullptr;
 }
-double GetDistance(Ptr<Node> a, Ptr<Node> b){
-    Ptr<MobilityModel> moba = GetNodeMobilityModel(a);
-    Ptr<MobilityModel> mobb = GetNodeMobilityModel(b);
-    return moba->GetDistanceFrom(mobb);
-}
 Ptr<Object> GetAttribute(std::string attrName, Ptr<Object> object)
 {
     PointerValue ptrVal;

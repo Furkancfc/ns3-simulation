@@ -8,8 +8,6 @@ extern std::ofstream rxtxOut;
 extern std::ofstream rxtxGainLog;
 extern std::ofstream rxtxPktLog;
 extern std::ofstream rxtxBandLog;
-extern std::string currentSourcePath;
-
 
 template <typename... Args>
 
@@ -22,10 +20,9 @@ std::string BuildLogMessage(Args &&...args)
 void LogMain();
 void LogToFile(std::string filename, std::string msg, std::string columnsCsvForm);
 void CreateLogDirectory();
-void SaveSourceCode();
+void SaveSourceCode(const std::string &sourceFilePath);
 void LogEnergy(ns3::Ptr<ns3::Node> node);
 void CloseLogs();
-void LogDistanceEnergyCorrelation(Ptr<Node> sender, Ptr<Node> receiver);
 void LogBandwidthValues(Ptr<Node> sNode, Ptr<Node> rNode);
 void LogRxTxValues(Ptr<Node> sNode, Ptr<Node> rNode);
 void LogPathLoss(Ptr<Node> sNode, Ptr<Node> rNode);

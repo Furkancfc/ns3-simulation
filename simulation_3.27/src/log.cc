@@ -19,21 +19,11 @@ std::ofstream rxtxGainLog;
 std::ofstream rxtxPktLog;
 std::ofstream rxtxOut;
 std::ofstream rxtxBandLog;
-std::string currentSourcePath;
 
 NS_LOG_COMPONENT_DEFINE("Log");
 void LogMain(){
   
   Simulator::Schedule(Seconds(1.0),&LogMain);
-}
-void LogDistanceEnergyCorrelation(Ptr<Node> sender, Ptr<Node> receiver) {
-  double distance = GetDistance(sender, receiver);
-  Ptr<EnergySource> source = energyMap[sender].first;
-  double remaining = source->GetRemainingEnergy();
-  
-  LogToFile("distance_energy.csv", 
-           std::format("{},{},{}", Simulator::Now().GetSeconds(), distance, remaining),
-           "Time,Distance,RemainingEnergy");
 }
 void LogToFile(std::string filename, std::string msg, std::string columnsCsvForm)
 {
@@ -60,7 +50,7 @@ void CreateLogDirectory()
   // Format the timestamp
   std::ostringstream oss;
   oss << std::put_time(localTime, "%Y-%m-%d_%H-%M-%S");
-  std::string prefix = logDirectory;
+  std::string prefix = "../logs";
   logDirectory = "/logs_" + oss.str();
 
   fs::create_directory(prefix);
@@ -68,13 +58,13 @@ void CreateLogDirectory()
   // Create the directory
   fs::create_directory(logDirectory);
 }
-void SaveSourceCode()
+void SaveSourceCode(const std::string &sourceFilePath)
 {
   // Open the source file for reading
-  std::ifstream sourceFile(currentSourcePath);
+  std::ifstream sourceFile(sourceFilePath);
   if (!sourceFile.is_open())
   {
-    NS_LOG_ERROR("Failed to open source file: " << currentSourcePath);
+    NS_LOG_ERROR("Failed to open source file: " << sourceFilePath);
     return;
   }
 
@@ -114,25 +104,19 @@ void LogMovement(Ptr<ns3::Node> sNode, Ptr<ns3::Node> rNode)
 void LogEnergy(Ptr<Node> node)
 {
   std::string fileName = "energy_log" + std::to_string(node->GetId()) + ".csv";
-  // Ptr<EnergyHarvester> harvester = energyMap[node].second;
-  Ptr<EnergySource> source = energyMap[node].first;
-  Ptr<WifiRadioEnergyModel> energyModel = DynamicCast<WifiRadioEnergyModel>(energyModels[node]);
-  Ptr<BasicEnergySource> energySource = DynamicCast<BasicEnergySource>(source);
+  Ptr<BasicEnergySource> energySource = GetNodeEnergySource(node);
+  Ptr<WifiNetDevice> dev =GetNodeWifiNetDevice(node);
+  Ptr<EnergyHarvester> harvester = energySource->GetObject<EnergyHarvester>();
+
   
   uint64_t currentTx = txPacketsMap[node];
   uint64_t currentRx = rxPacketsMap[node];
   uint64_t currentTotalPackets = currentTx + currentRx;
   
+  // double remainingEnergy = harvester->();
   double initialEnergy = energySource->GetInitialEnergy();
   double remainingEnergy = energySource->GetRemainingEnergy();
-  double timeElapsed = Simulator::Now().GetSeconds();
   double currentConsumed = initialEnergy - remainingEnergy;
-  // double currentConsumed = harvester->GetPower();
-
-  double idleCurrent = energyModel->GetIdleCurrentA();
-  double voltage = energySource->GetSupplyVoltage();
-  double expectedIdleConsumption = timeElapsed * idleCurrent * voltage;
-
   auto& prevData = previousData[node];
   double lastConsumed = prevData.first;
   uint64_t lastTotalPackets = prevData.second;

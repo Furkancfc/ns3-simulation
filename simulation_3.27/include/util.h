@@ -4,7 +4,6 @@
 
 double GetTxValue(ns3::Ptr<ns3::Node> sNode);
 double GetRxValue(double txPower, ns3::Ptr<ns3::MobilityModel> senderMobility, ns3::Ptr<ns3::MobilityModel> receiverMobility);
-double GetDistance(Ptr<Node> a, Ptr<Node> b);
 ns3::DataRate GetDataRate(ns3::Ptr<ns3::Node> sNode,ns3::Ptr<ns3::Node> rNode);
 ns3::Ptr<ns3::MobilityModel> GetNodeMobilityModel(ns3::Ptr<ns3::Node> node);
 ns3::Ptr<ns3::NetDevice> GetNetDevice(ns3::Ptr<ns3::Node> node);

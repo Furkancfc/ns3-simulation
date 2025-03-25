@@ -46,6 +46,8 @@ namespace ns3{
 
     LogDistancePropagationLossModel::LogDistancePropagationLossModel()
     {
+        m_referenceDistance = 1.0; // 1 meter
+        m_referenceLoss = 46.0;    // 46 dB
         m_exponent = 2.0;          // Path loss exponent
     }
 

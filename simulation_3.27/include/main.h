@@ -41,10 +41,7 @@ extern double totalRxEnergy;
 extern std::map<ns3::Ptr<ns3::NetDevice>, ns3::Ptr<ns3::WifiRadioEnergyModel>> deviceToEnergyModelMap;
 extern std::map<ns3::Ptr<ns3::Node>, uint64_t> txPacketsMap;
 extern std::map<ns3::Ptr<ns3::Node>, uint64_t> rxPacketsMap;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<double, uint64_t>> previousData;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<ns3::Ptr<ns3::energy::EnergySource>,ns3::Ptr<ns3::energy::EnergyHarvester>>> energyMap; 
-extern std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> energyModels;
-
+extern std::map<Ptr<Node>, std::pair<double, uint64_t>> previousData;
 
 void ControlMovement(Ptr<Node> sNode);
 void TraceHarvestedEnergy(double oldValue, double newValue);
