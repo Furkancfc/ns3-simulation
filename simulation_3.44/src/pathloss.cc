@@ -2,6 +2,8 @@
 #include "pathloss.h"
 #include "util.h"
 
+NS_LOG_COMPONENT_DEFINE("Pathloss");
+
 namespace ns3{
     std::tuple<double, double, double, double>
     CalculatePathLoss(Ptr<Node> sNode, Ptr<Node> rNode, double frequency)

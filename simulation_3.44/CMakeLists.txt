@@ -130,7 +130,7 @@ string(REPLACE ";" " " ENV_VARS_STRING "${TARGET_ENV_VARS}")
 
 add_custom_target(
   launch_simulation
-    COMMAND ${ENV_VARS_STRING};${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXECUTABLE_OUTPUT_NAME}
+    COMMAND ${ENV_VARS_STRING};${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXECUTABLE_OUTPUT_NAME} > ${LOG_DIR}/output.log 2>&1
     DEPENDS simulation_4
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     COMMENT "Launching simulation with configured environment variables"
@@ -145,3 +145,5 @@ add_custom_target(env_vars_help
     COMMAND ${CMAKE_COMMAND} -E echo "  EXEC_SOURCE=${EXEC_SOURCE}"
     COMMENT "Display available environment variables for configuration"
 )
+target_compile_definitions(simulation_4 PRIVATE NS3_LOG_ENABLE)
+target_compile_options(simulation_4 PRIVATE -g -O0)  # Debug symbols, no optimization

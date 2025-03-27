@@ -65,7 +65,7 @@
 #include <tuple>
 #include <cmath>
 #include <format>
-
+#include <tuple>
 // Avoid using namespace in headers
 // using namespace ns3;
 

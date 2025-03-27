@@ -1,6 +1,8 @@
 #ifndef LOG_H
 #define LOG_H
 #include "includes.h"	
+
+
 extern std::string logDirectory;
 extern std::ofstream pathLossOut;
 extern std::ofstream movementOut;
@@ -33,4 +35,5 @@ void LogRxTxGain(Ptr<Node> sNode, Ptr<Node> rNode);
 void LogRxTxPackets(Ptr<ns3::Node> sNode, Ptr<ns3::Node> rNode);
 void LogMovement(Ptr<ns3::Node> sNode, Ptr<ns3::Node> rNode);
 void LogWifiPhyState(std::string context,ns3::Time start, ns3::Time duration, ns3::WifiPhyState state);
+void LogSnrValues(Ptr<Node> tx, Ptr<Node> rx);
 #endif

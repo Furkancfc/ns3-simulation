@@ -1,24 +1,15 @@
 #include "main.h"
 #include "includes.h"
-#include "log.h"
+#include "logger.h"
 #include "pathloss.h"
 #include "util.h"
+#include <filesystem>
+
 ns3::dBm_u minPower = -30;
 ns3::dBm_u maxPower = 100;
 ns3::dBm_u minThreasold = -50;
 ns3::dBm_u maxThreasold = -30;
 ns3::dBm_u senderTxBegin = 30;
-uint64_t totalTxBytes = 0;
-uint64_t totalRxBytes = 0;
-uint64_t totalRxPackets = 0;
-uint64_t totalTxPackets = 0;
-uint64_t lastRxBytes = 0;
-uint64_t lastTxBytes = 0;
-uint64_t lastRxPackets = 0;
-uint64_t lastTxPackets = 0;
-uint64_t sentBytes = 0;
-double lastRxTime = 0.0;
-ns3::Ptr<ns3::Packet> lastPacket = nullptr;
 int threasold = 0;
 double frequency = 2.4e9; // Example frequency in Hz
 ns3::PointerValue lossModel;
@@ -27,109 +18,135 @@ uint32_t payloadSize = 1024; // Example payload size in bytes
 ns3::DataRate dataRate = ns3::DataRate(100 * 1e6); // Example data rate 100Mbps
 bool pcapTracing = true;
 ns3::Time delayTime = ns3::Seconds(5.0);
-ns3::Time endTime = ns3::Seconds(60.0);
-double totalTxEnergy = 0;
-double totalRxEnergy = 0;
+ns3::Time endTime = ns3::Seconds(100.0);
 using namespace ns3;
 using namespace ns3::energy;
-std::map<Ptr<NetDevice>, Ptr<WifiRadioEnergyModel>> deviceToEnergyModelMap;
-
-std::map<Ptr<Node>, uint64_t> txPacketsMap;
-std::map<Ptr<Node>, uint64_t> rxPacketsMap;
-std::map<Ptr<Node>, std::pair<double, uint64_t>> previousData;
-std::map<Ptr<Node>, std::pair<Ptr<EnergySource>, Ptr<EnergyHarvester>>>
-    energyMap;
+std::map<Ptr<NetDevice>, Ptr<WifiRadioEnergyModel>>
+    deviceToEnergyModelMap; // [netDevice], radioenergymodel
+std::map<Ptr<Node>, std::pair<uint64_t, double>>
+    txPacketsMap; // packetCount, energy
+std::map<Ptr<Node>, std::pair<uint64_t, double>>
+    rxPacketsMap; // packetCount, energy
+std::map<Ptr<Node>, InstantCounts>
+    previousRxDataInstant; // timeNow, currentPackets, currentEnergy
+std::map<Ptr<Node>, InstantCounts> previousTxDataInstant;
+std::map<ns3::Ptr<ns3::Node>, std::pair<ns3::Ptr<ns3::energy::EnergySource>,
+                                        ns3::Ptr<ns3::energy::EnergyHarvester>>>
+    energyMap; // [node], energySource, energyHarvester
 std::map<Ptr<Node>, Ptr<DeviceEnergyModel>> energyModels;
-
+std::map<Ptr<Node>, InstantCounts> txInstantMap; // For sender
+std::map<Ptr<Node>, InstantCounts> rxInstantMap; // For receiver
+Ptr<Node> senderNode;
+Ptr<Node> receiverNode;
 NS_LOG_COMPONENT_DEFINE("Main");
 // Core Module
-void RecvCallBack(Ptr<Socket> socket) {
+
+void ForceEnergyDepletion(Ptr<Node> node) {
+  Ptr<WifiRadioEnergyModel> energyModel =
+      deviceToEnergyModelMap[GetNodeWifiNetDevice(node)];
+
+  // Force energy consumption by switching to TX state
+  energyModel->ChangeState(2); // TX
+
+  // Schedule next depletion check
+  Simulator::Schedule(Seconds(1.0), &ForceEnergyDepletion, node);
+}
+void RecvCallback(Ptr<Socket> socket) {
+  Ptr<Node> rNode = receiverNode;
+  uint32_t nodeId = rNode->GetId();
+
+  // Initialize if not exists (should be done during setup)
+  if (rxPacketsMap.find(rNode) == rxPacketsMap.end()) {
+    rxPacketsMap[rNode] = {0, 0.0};
+  }
+  auto &rxMap = rxPacketsMap[rNode];
+
   Address from;
   Ptr<Packet> packet;
-  NS_LOG_UNCOND("Triggered RecvCallBack");
+  double currentTime = Simulator::Now().GetSeconds();
   while ((packet = socket->RecvFrom(from))) {
-    // Update global counters
-    lastRxBytes = packet->GetSize();
-    lastRxPackets = 1;
-    totalRxBytes += lastRxBytes;
-    totalRxPackets += lastRxPackets;
-    rxPacketsMap[socket->GetNode()]++;
-    lastRxTime = Simulator::Now().GetSeconds();
-    NS_LOG_UNCOND("Packet received at time "
-                  << Simulator::Now().GetSeconds() << " with size "
-                  << packet->GetSize() << " bytes from " << from);
+    // Debug output
+    InetSocketAddress addr = InetSocketAddress::ConvertFrom(from);
+    NS_LOG_UNCOND("[" << Simulator::Now().GetSeconds() << "s] Node " << nodeId
+                      << " received " << packet->GetSize() << " bytes from "
+                      << addr.GetIpv4() << ":" << addr.GetPort());
+
+    // Update counters
+    double rxEnergy = CalculateRxEnergy(rNode, senderNode, packet->GetSize());
+    double rxPower = CalculateRxPower(rNode);
+    previousRxDataInstant[rNode] = rxInstantMap[rNode];
+    rxMap.first++;
+    rxMap.second = rxEnergy;
+    rxInstantMap[rNode] = {
+        .packets = 1, // Just this packet
+        .energy = rxEnergy,
+        .timestamp = currentTime,
+        .power = rxPower,
+    };
+    // PHY-level verification
+    Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(rNode);
+    if (wifiDev) {
+      // NS_LOG_UNCOND("Last RSSI: " << wifiDev->GetPhy) << " dBm");
+    }
   }
-}
-void SendCallback(Ptr<Socket> socket, uint32_t availableBufferSize) {
-  NS_LOG_UNCOND(
-      "SendCallback triggered. Available buffer size: " << availableBufferSize);
 }
 void SendPacket(Ptr<Socket> socket, Ptr<Node> sNode, Ptr<Node> rNode,
                 InetSocketAddress addr) {
-  double rxPower = GetRxValue(GetTxValue(sNode), GetNodeMobilityModel(sNode),
-                              GetNodeMobilityModel(rNode));
-  Ptr<Packet> packet = Create<Packet>(1024); // 1024-byte packet
-  int n = 0;
-  switch (threasold) {
-  case 0:
-    n = socket->SendTo(packet, 0, addr);
-    txPacketsMap[sNode] = 1;
-    totalTxPackets++;
-    totalTxBytes += n;
-    lastTxBytes = n;
-    lastTxPackets = 1;
-    break;
-  case 1:
-    if (rxPower > minThreasold) // Only send if RxPower is good
-    {
-      n = socket->SendTo(packet, 0, addr);
-      if (n < 1) {
-        NS_LOG_ERROR("Failed to send packet");
-      } else {
+  // Get current transmission parameters
+  Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(sNode);
+  double txDuration = (payloadSize * 8) / dataRate.GetBitRate();
+  auto &txMap = txPacketsMap[sNode];
+  Ptr<WifiRadioEnergyModel> energyModel = deviceToEnergyModelMap[wifiDev];
+  energyModel->ChangeState(2);
+  // Perform transmission
+  double currentTime = Simulator::Now().GetSeconds();
+  int bytesSent = socket->SendTo(Create<Packet>(payloadSize), 0, addr);
+  double txEnergy = CalculateTxEnergy(sNode, receiverNode, bytesSent);
+  double txPower = CalculateTxPower(sNode);
+  energyModel->ChangeState(0);
+  previousTxDataInstant[sNode] = txInstantMap[sNode];
+  txMap.first += 1;
+  txMap.second += txEnergy;
+  txInstantMap[sNode] = {
+      .packets = 1, // Just this transmission
+      .energy = txEnergy,
+      .timestamp = currentTime,
+      .power = txPower,
+  };
+  if (bytesSent > 0) {
+    // Account for energy consumption
+    UpdateEnergyAccounting(sNode, txDuration);
 
-        totalTxPackets++;
-        totalTxBytes += n;
-        lastTxBytes = n;
-        lastTxPackets = 1;
-      }
-      NS_LOG_UNCOND("Packet Sent!");
-    } else {
-      NS_LOG_WARN("Packet NOT sent due to weak signal (" << rxPower << " dBm)");
-    }
-    break;
+    // Return to idle state
   }
   Simulator::Schedule(Seconds(1.0), &SendPacket, socket, sNode, rNode, addr);
 }
+void ControlMovement(Ptr<Node> sNode, Ptr<Node> rNode) {
+    // Validate mobility models
+    Ptr<ConstantVelocityMobilityModel> mobs = DynamicCast<ConstantVelocityMobilityModel>(GetNodeMobilityModel(sNode));
+    Ptr<ConstantVelocityMobilityModel> mobr = DynamicCast<ConstantVelocityMobilityModel>(GetNodeMobilityModel(rNode));
+    if (!mobs || !mobr) {
+        NS_LOG_ERROR("Invalid mobility model!");
+        return;
+    }
 
-void ReceivePacket(Ptr<Socket> socket) {
-  Address from;
-  Ptr<Packet> packet;
-  Ptr<Node> rNode = socket->GetNode();
-  while ((packet = socket->RecvFrom(from))) {
-    lastRxBytes = packet->GetSize();
-    rxPacketsMap[rNode] = 1;
-    lastRxPackets = 1;
-    totalRxBytes += lastRxBytes;
-    totalRxPackets += lastRxPackets;
-    lastRxTime = Simulator::Now().GetSeconds();
+    // Start movement at delayTime
+    if (Simulator::Now() >= delayTime && mobs->GetVelocity() == Vector(0, 0, 0)) {
+        mobs->SetVelocity(Vector(1.0, 0.0, 0.0));
+    }
 
-    NS_LOG_UNCOND("Packet received at time "
-                  << Simulator::Now().GetSeconds() << " with size "
-                  << packet->GetSize() << " bytes from " << from);
+    // Reverse direction near 50m (with tolerance)
+    double distance = mobs->GetDistanceFrom(mobr);
+    if (std::fabs(distance - 50.0) < 0.5) { // Tolerance of ±0.5m
+        Vector vel = mobs->GetVelocity();
+        mobs->SetVelocity(vel * -1); // Reverse direction
+    }
 
-    // Log received signal strength
-  }
-}
-
-void ControlMovement(Ptr<Node> sNode) {
-  Ptr<ConstantVelocityMobilityModel> mob =
-      sNode->GetObject<ConstantVelocityMobilityModel>();
-  if (Simulator::Now() == delayTime) {
-    mob->SetVelocity(Vector(20.0, 0.0, 0.0));
-  } else if (Simulator::Now() == endTime / 2) {
-    mob->SetVelocity(Vector(-20.0, 0.0, 0.0));
-  }
-  Simulator::Schedule(Seconds(1.0), &ControlMovement, sNode);
+    // Stop after 100 iterations (optional)
+    static int count = 0;
+    if (count++ < 100) {
+        Simulator::Schedule(Seconds(1.0), &ControlMovement, sNode, rNode);
+    }
 }
 void TraceHarvestedEnergy(double oldValue, double newValue) {
   // The context should help identify which node this is
@@ -139,22 +156,17 @@ void TraceHarvestedEnergy(double oldValue, double newValue) {
   // In a more complete implementation, you would identify the node and track
   // harvested energy per node
 }
-void LimitEnergy(double oldValue, double newValue) {
-  // This assumes initial energy is 10.0J
-  if (newValue > 10.0) {
-    // We can't directly set the energy back to 10.0, but we can log this
-    // occurrence
-    NS_LOG_WARN("Energy exceeded maximum capacity: " << newValue << "J");
-    // In a real implementation, you might want to adjust the harvester's
-    // behavior
+void LimitEnergy(double oldValue, double newValue, Ptr<Node> node) {
+  Ptr<WifiRadioEnergyModel> source =
+      deviceToEnergyModelMap[GetNodeWifiNetDevice(node)]; // Get source
+  if (newValue > 10.0) { // If energy exceeds initial capacity
+    // source->SetEner(10.0); // Force it back to max
+    NS_LOG_WARN("Energy exceeded max, reset to 10.0 J");
   }
 }
 void ControlEnergy(Ptr<EnergySourceContainer> container) {
   for (uint32_t i = 0; i < container->GetN(); ++i) {
-    Ptr<BasicEnergySource> source = DynamicCast<BasicEnergySource>(
-        energyMap[container->Get(0)->GetNode()].first);
-    source->TraceConnectWithoutContext("RemainingEnergy",
-                                       MakeCallback(&LimitEnergy));
+    ForceEnergyDepletion(container->Get(i)->GetNode());
   }
   // for (uint32_t i = 0; i < container->GetN(); ++i)
   // {
@@ -165,33 +177,22 @@ void ControlEnergy(Ptr<EnergySourceContainer> container) {
   //     MakeCallback(&TraceHarvestedEnergy));
   // }
 }
-
 // Setting Sender Node Antenna
 void AdjustTxPower(Ptr<Node> sNode, Ptr<Node> rNode) {
-  Ptr<WifiNetDevice> wifiDevice = GetNodeWifiNetDevice(sNode);
-  Ptr<WifiPhy> sPhy = wifiDevice->GetPhy();
-  Ptr<WifiPhy> rPhy = wifiDevice->GetPhy();
-  Ptr<ConstantVelocityMobilityModel> mobS =
-      DynamicCast<ConstantVelocityMobilityModel>(GetNodeMobilityModel(sNode));
-  Ptr<ConstantVelocityMobilityModel> mobR =
-      DynamicCast<ConstantVelocityMobilityModel>(GetNodeMobilityModel(rNode));
+    Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(sNode);
+    Ptr<WifiPhy> phy = wifiDev->GetPhy();
+    double currentRxPower = GetRxValue(GetTxValue(sNode),sNode,rNode);
+    double currentBandwidth = CalculateTxDataRate(sNode, rNode).GetBitRate() / 1e6;
 
-  double currentRxPower = GetRxValue(sPhy->GetTxPowerEnd(), mobS, mobR);
-
-  if (currentRxPower < minThreasold) {
-    sPhy->SetTxPowerStart(sPhy->GetTxPowerStart() + 20); // Increase power
-    sPhy->SetTxPowerEnd(sPhy->GetTxPowerEnd() + 20);
-    rPhy->SetRxSensitivity(rPhy->GetRxSensitivity() - 20);
-    NS_LOG_UNCOND("Increasing Tx Power due to weak signal");
-  } else if (currentRxPower > maxThreasold) {
-    sPhy->SetTxPowerStart(sPhy->GetTxPowerStart() - 5); // Decrease power
-    sPhy->SetTxPowerEnd(sPhy->GetTxPowerEnd() - 5);
-    rPhy->SetRxSensitivity(rPhy->GetRxSensitivity() + 5);
-    NS_LOG_UNCOND("Decreasing Tx Power to saave energy");
-  }
-
-  Simulator::Schedule(Seconds(1.0), &AdjustTxPower, sNode,
-                      rNode); // Periodic check
+    // Target: Maintain SNR for at least MCS 0 (5 dB)
+    if (currentRxPower < -80) { // Weak signal
+        phy->SetTxPowerEnd(phy->GetTxPowerEnd() + 5); // Boost TX power
+        NS_LOG_UNCOND("Increased TX power to " << phy->GetTxPowerEnd() << " dBm");
+    } 
+    else if (currentRxPower > -70 && currentBandwidth < 50) { // Strong signal but low bandwidth
+        phy->SetTxPowerEnd(phy->GetTxPowerEnd() - 5); // Reduce TX power
+        NS_LOG_UNCOND("Decreased TX power to " << phy->GetTxPowerEnd() << " dBm");
+    }
 }
 void EnergyTraceCallback(std::string context, double oldVal, double newVal) {
   // Parse node index from context path
@@ -217,6 +218,11 @@ void UpdateTxCurrent(Ptr<Node> node) {
   Simulator::Schedule(Seconds(0.1), &UpdateTxCurrent, node);
 }
 int main(int argc, char *argv[]) {
+
+  LogComponentEnable("Util", LOG_LEVEL_ALL);
+  LogComponentEnable("Logger", LOG_LEVEL_ALL);
+  LogComponentEnable("Main", LOG_LEVEL_ALL);
+  LogComponentEnable("Pathloss", LOG_LEVEL_ALL);
   logDirectory = std::getenv("LOG_DIR") ? std::getenv("LOG_DIR") : "";
   currentSourcePath =
       std::getenv("EXEC_SOURCE") ? std::getenv("EXEC_SOURCE") : "";
@@ -238,10 +244,10 @@ int main(int argc, char *argv[]) {
   InternetStackHelper internet;
   internet.Install(nodes);
 
-  Ptr<Node> senderNode = nodes.Get(0);
-  Ptr<Node> receiverNode = nodes.Get(1);
-  txPacketsMap[senderNode] = 0;
-  rxPacketsMap[receiverNode] = 0;
+  senderNode = nodes.Get(0);
+  receiverNode = nodes.Get(1);
+  txPacketsMap[senderNode] = {0, 0};
+  rxPacketsMap[receiverNode] = {0, 0};
   // Configure Wi-Fi
   WifiHelper wifiHelper;
   wifiHelper.SetStandard(WIFI_STANDARD_80211n);
@@ -291,30 +297,16 @@ int main(int argc, char *argv[]) {
   Ipv4InterfaceContainer apInterfaces = ipv4.Assign(apDevices);
   Ipv4InterfaceContainer staInterfaces = ipv4.Assign(staDevices);
   Ipv4GlobalRoutingHelper::PopulateRoutingTables();
-  // Receiver and Sender Packet Transmission and Receive with Udp Application
-  // {
-  // uint16_t port = 9;
-  // UdpServerHelper server (port);
-  // ApplicationContainer serverApp = server.Install (apNodes.Get (0));
-  // serverApp.Start (delayTime - Seconds(1.0));
-  // serverApp.Stop (endTime);
-
-  // UdpClientHelper client (staInterfaces.GetAddress (0), port);
-  // client.SetAttribute ("MaxPackets", UintegerValue (320));
-  // client.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
-  // client.SetAttribute ("PacketSize", UintegerValue (1024));
-  // ApplicationContainer clientApp = client.Install (staNodes.Get (0));
-  // clientApp.Start (delayTime);
-  // clientApp.Stop (endTime);
-  // }
-  // Receiver and Sender Packet Transmission and Receive with Udp Sockets
 
   if (pcapTracing) {
-    wifiPhy.SetPcapDataLinkType(
-        WifiPhyHelper::SupportedPcapDataLinkTypes::DLT_IEEE802_11);
-    wifiPhy.SetPcapCaptureType(WifiPhyHelper::PcapCaptureType::PCAP_PER_DEVICE);
-    wifiPhy.EnablePcap("AccessPoint", apDevices);
-    wifiPhy.EnablePcap("Station", staDevices);
+    std::string pcapDir = logDirectory;
+    if (!std::filesystem::exists(pcapDir)) {
+      std::filesystem::create_directories(pcapDir);
+    }
+    std::string pcapPrefix = pcapDir + "/trace";
+    wifiPhy.SetPcapDataLinkType(WifiPhyHelper::DLT_IEEE802_11_RADIO);
+    wifiPhy.EnablePcap(pcapPrefix, apDevices.Get(0));
+    wifiPhy.EnablePcap(pcapPrefix, staDevices.Get(0));
   }
 
   // **Receiver Socket**
@@ -327,7 +319,7 @@ int main(int argc, char *argv[]) {
   receiverSocket->SetIpRecvTos(true);
   receiverSocket->SetIpRecvTtl(true);
   receiverSocket->SetAllowBroadcast(true);
-  receiverSocket->SetRecvCallback(MakeCallback(&ReceivePacket));
+  receiverSocket->SetRecvCallback(MakeCallback(&RecvCallback));
 
   // **Sender Socket**
   Ptr<Socket> senderSocket =
@@ -342,8 +334,8 @@ int main(int argc, char *argv[]) {
   MobilityHelper mobility;
   Ptr<ListPositionAllocator> positionAlloc =
       CreateObject<ListPositionAllocator>();
-  positionAlloc->Add(Vector(0.0, 0.0, 0.0));   // Sender position
-  positionAlloc->Add(Vector(100.0, 0.0, 0.0)); // Receiver position
+  positionAlloc->Add(Vector(0.0, 0.0, 10.0));   // Sender position
+  positionAlloc->Add(Vector(0.0, 0.0, 0.0)); // Receiver position
   mobility.SetPositionAllocator(positionAlloc);
   mobility.SetMobilityModel("ns3::ConstantVelocityMobilityModel");
   mobility.Install(nodes);
@@ -357,9 +349,7 @@ int main(int argc, char *argv[]) {
   // **Energy Configurations**
   BasicEnergySourceHelper basicSourceHelper;
   basicSourceHelper.Set("BasicEnergySourceInitialEnergyJ",
-                        DoubleValue(10.0)); // Initial energy
-  // basicSourceHelper.Set("BasicEnergySourceUpperEnergyLimitJ",
-  // DoubleValue(10.0)); // Cap at initial energy
+                        DoubleValue(1000.0)); // Initial energy
   basicSourceHelper.Set("BasicEnergySupplyVoltageV",
                         DoubleValue(3.0)); // Voltage (positive)
   EnergySourceContainer apEnergyContainer = basicSourceHelper.Install(apNodes);
@@ -370,26 +360,18 @@ int main(int argc, char *argv[]) {
   Ptr<EnergySourceContainer> staContainer =
       (Ptr<EnergySourceContainer>)&staEnergyContainer;
   WifiRadioEnergyModelHelper radioEnergyHelper;
-  radioEnergyHelper.Set("TxCurrentModel",
-                        StringValue("ns3::LinearWifiTxCurrentModel"));
-  radioEnergyHelper.Set("LinearWifiTxCurrentModel::Eta",
-                        DoubleValue(0.10)); // Efficiency factor
-  radioEnergyHelper.Set("LinearWifiTxCurrentModel::Voltage", DoubleValue(3.0));
-  radioEnergyHelper.Set("LinearWifiTxCurrentModel::IdleCurrent",
-                        DoubleValue(0.01));
-  radioEnergyHelper.Set("TxCurrentModel",
-                        StringValue("ns3::LinearWifiTxCurrentModel"));
-  radioEnergyHelper.Set("TxCurrentA",
-                        DoubleValue(0.500)); // Increase from 0.380
-  radioEnergyHelper.Set("RxCurrentA",
-                        DoubleValue(0.400)); // Increase from 0.313
-  radioEnergyHelper.Set("IdleCurrentA", DoubleValue(0.01)); // Idle current (A)
-  radioEnergyHelper.Set(
-      "CcaBusyCurrentA",
-      DoubleValue(
-          0.273)); // CCA_BUSY current (A)    DeviceEnergyModelContainer
-                   // staDeviceEnergyContainer =
-                   // radioEnergyHelper.Install(staDevices, staEnergyContainer);
+
+  // Create and configure the linear current model
+  Ptr<LinearWifiTxCurrentModel> txCurrentModel =
+      CreateObject<LinearWifiTxCurrentModel>();
+  txCurrentModel->SetAttribute("Eta",
+                               DoubleValue(0.33)); // Efficiency factor (33%)
+  txCurrentModel->SetAttribute("Voltage", DoubleValue(3.0)); // 3V supply
+  txCurrentModel->SetAttribute("IdleCurrent",
+                               DoubleValue(0.01)); // Idle current
+
+  // Configure the energy helper
+  radioEnergyHelper.Set("TxCurrentModel", PointerValue(txCurrentModel));
 
   DeviceEnergyModelContainer apDeviceEnergyContainer =
       radioEnergyHelper.Install(apDevices, apEnergyContainer);
@@ -398,10 +380,18 @@ int main(int argc, char *argv[]) {
 
   for (int i = 0; i < apDeviceEnergyContainer.GetN(); i++) {
     energyModels[apNodes.Get(i)] = apDeviceEnergyContainer.Get(i);
+    deviceToEnergyModelMap[apDevices.Get(i)] =
+        DynamicCast<WifiRadioEnergyModel>(apDeviceEnergyContainer.Get(i));
+    energyMap[apNodes.Get(i)] = {apEnergyContainer.Get(0), 0};
   }
   for (int i = 0; i < staDeviceEnergyContainer.GetN(); i++) {
     energyModels[staNodes.Get(i)] = staDeviceEnergyContainer.Get(i);
+    deviceToEnergyModelMap[staDevices.Get(i)] =
+        DynamicCast<WifiRadioEnergyModel>(staDeviceEnergyContainer.Get(i));
+    energyMap[staNodes.Get(i)] = {staEnergyContainer.Get(0), 0};
   }
+  previousRxDataInstant[senderNode] = {0, 0, 0.0, 0};
+  previousRxDataInstant[receiverNode] = {0, 0, 0.0, 0};
 
   // **Energy Havresting**
   // BasicEnergyHarvesterHelper basicHarvesterHelper;
@@ -409,12 +399,6 @@ int main(int argc, char *argv[]) {
   // EnergyHarvesterContainer apHavrester =
   // basicHarvesterHelper.Install(apEnergyContainer); EnergyHarvesterContainer
   // staHavrester = basicHarvesterHelper.Install(staEnergyContainer);
-
-  auto &data = energyMap[apNodes.Get(0)];
-  data = {apEnergyContainer.Get(0), 0};
-  energyMap[apNodes.Get(0)] = data;
-  data = {staEnergyContainer.Get(0), 0};
-  energyMap[staNodes.Get(0)] = data;
 
   // Energy Trace Config
   // After (correct path)
@@ -426,8 +410,9 @@ int main(int argc, char *argv[]) {
   Simulator::Schedule(delayTime, &LogRxTxPackets, senderNode, receiverNode);
   Simulator::Schedule(delayTime, &LogEnergy, senderNode);
   Simulator::Schedule(delayTime, &LogEnergy, receiverNode);
+  Simulator::Schedule(delayTime, &LogSnrValues, senderNode, receiverNode);
   // Simulation Adjustments
-  Simulator::Schedule(delayTime, &ControlMovement, receiverNode);
+  Simulator::Schedule(delayTime, &ControlMovement, senderNode, receiverNode);
   Simulator::Schedule(delayTime, &ControlEnergy, apContainer);
   Simulator::Schedule(delayTime, &ControlEnergy, staContainer);
   Simulator::Schedule(delayTime, &AdjustTxPower, senderNode, receiverNode);
