@@ -10,6 +10,10 @@
 #include "ns3/wifi-module.h"
 #include "ns3/internet-module.h"
 
+// Antenna Module
+#include "ns3/antenna-model.h"
+#include "ns3/antenna-module.h"
+
 // Internet Modules
 #include "ns3/packet-sink-helper.h"
 #include "ns3/packet-sink.h"
@@ -59,7 +63,15 @@
 #include "ns3/energy-source.h"
 #include "ns3/energy-harvester-helper.h"
 #include "ns3/energy-harvester-helper.h"
+// Flowmonitor
+#include "ns3/flow-classifier.h"
+#include "ns3/flow-monitor-helper.h"
+#include "ns3/flow-monitor.h"
+#include "ns3/flow-monitor-module.h"
+//
+#include "ns3/random-variable-stream.h"
 // Standard Library
+
 #include <iostream>
 #include <fstream>
 #include <tuple>
@@ -68,5 +80,5 @@
 #include <tuple>
 // Avoid using namespace in headers
 // using namespace ns3;
-
+const double SPEED_OF_LIGHT = 299792458.0; // in meters per second
 #endif // SIMULATION_4_INCLUDES_H

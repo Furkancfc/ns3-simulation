@@ -1,0 +1,2477 @@
+⚠️ Failed to open env file: envtxt
+Source code saved to: /mnt/nvme0n1p6/Klasorler/Dersler/BitirmeProje/simulation_4/simulation_3.44/logs/logs_2025-03-30_18-51-55/main.cc
+Time: 0, Distance: 10
+Time: 1, Distance: 10
+Time: 2, Distance: 10
+Time: 3, Distance: 10
+Time: 4, Distance: 10
+SNR calculation: TX=10dBm, RX=-56.6777dBm, Noise=-87.9454dBm, SNR=31.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 14.951 dB Capacity: 100.24 Mbps
+Increased Sender: TX: 15 TxCurrent: 0.015
+Increased Receiver: TX: 21.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+No RX data recorded for node 1
+SNR calculation: TX=15dBm, RX=-51.6777dBm, Noise=-87.9454dBm, SNR=36.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5952 dB Capacity: 104.397 Mbps
+SNR calculation: TX=15dBm, RX=-51.6777dBm, Noise=-87.9454dBm, SNR=36.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 104.397 Mbps
+SNR calculation: TX=15dBm, RX=-51.6777dBm, Noise=-87.9454dBm, SNR=36.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5952 dB Capacity: 104.397 Mbps
+SNR calculation: TX=15dBm, RX=-51.6777dBm, Noise=-87.9454dBm, SNR=36.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5952 dB Capacity: 104.397 Mbps
+TX Duration: 7.84696e-05s for 1024 bytes
+Time: 5, Distance: 10
+[5.0064s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=21.0206dBm, RX=-45.6578dBm, Noise=-87.9454dBm, SNR=42.2876dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.718 Mbps
+RX Energy for 1024 bytes: 3.3908e-05 J (Duration: 7.53512e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=15dBm, RX=-51.6784dBm, Noise=-87.9454dBm, SNR=36.267dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 104.397 Mbps
+Last RSSI: -51.6784 dBm
+SNR calculation: TX=15dBm, RX=-58.6674dBm, Noise=-87.9454dBm, SNR=29.278dB
+TX Mode: OfdmRate6Mbps, SNR: 14.6654 dB Capacity: 98.4039 Mbps
+Increased Sender: TX: 20 TxCurrent: 0.015
+Increased Receiver: TX: 26.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=20dBm, RX=-53.6674dBm, Noise=-87.9454dBm, SNR=34.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.814 Mbps
+SNR calculation: TX=20dBm, RX=-53.6674dBm, Noise=-87.9454dBm, SNR=34.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3502 dB Capacity: 102.814 Mbps
+SNR calculation: TX=20dBm, RX=-53.6674dBm, Noise=-87.9454dBm, SNR=34.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.814 Mbps
+SNR calculation: TX=20dBm, RX=-53.6674dBm, Noise=-87.9454dBm, SNR=34.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3502 dB Capacity: 102.814 Mbps
+SNR calculation: TX=20dBm, RX=-53.6674dBm, Noise=-87.9454dBm, SNR=34.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3502 dB Capacity: 102.814 Mbps
+TX Duration: 7.96779e-05s for 1024 bytes
+Time: 6, Distance: 22.3606797749979
+[6.00007s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=26.0206dBm, RX=-47.6473dBm, Noise=-87.9454dBm, SNR=40.2981dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.36 Mbps
+RX Energy for 1024 bytes: 3.43368e-05 J (Duration: 7.6304e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=20dBm, RX=-53.6679dBm, Noise=-87.9454dBm, SNR=34.2775dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.814 Mbps
+Last RSSI: -53.6679 dBm
+SNR calculation: TX=20dBm, RX=-58.9822dBm, Noise=-87.9454dBm, SNR=28.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 14.6185 dB Capacity: 98.1024 Mbps
+Increased Sender: TX: 25 TxCurrent: 0.015
+Increased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 7, Distance: 41.23105625617663
+[7.00006s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9618dBm, Noise=-87.9454dBm, SNR=39.9835dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.139 Mbps
+RX Energy for 1024 bytes: 3.44075e-05 J (Duration: 7.64611e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9824dBm, Noise=-87.9454dBm, SNR=33.9629dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+Last RSSI: -53.9824 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 8, Distance: 60.82762530298223
+[8.00006s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3393dBm, Noise=-87.9454dBm, SNR=41.6061dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56699e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3599dBm, Noise=-87.9454dBm, SNR=35.5855dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3599 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 9, Distance: 80.62257748298555
+[9.00007s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7864dBm, Noise=-87.9454dBm, SNR=34.159dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.716 Mbps
+RX Energy for 1024 bytes: 3.58891e-05 J (Duration: 7.97535e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.807dBm, Noise=-87.9454dBm, SNR=28.1384dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.297 Mbps
+Last RSSI: -59.807 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 10, Distance: 100.49875621120897
+[10.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7004dBm, Noise=-87.9454dBm, SNR=37.245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50605e-05 J (Duration: 7.79122e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.721dBm, Noise=-87.9454dBm, SNR=31.2244dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.721 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 11, Distance: 120.41594578792302
+[11.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2709dBm, Noise=-87.9454dBm, SNR=30.6745dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.705 Mbps
+RX Energy for 1024 bytes: 3.69731e-05 J (Duration: 8.21624e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2915dBm, Noise=-87.9454dBm, SNR=24.6539dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6221 Mbps
+Last RSSI: -63.2915 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 12, Distance: 140.35668847618206
+[12.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6018dBm, Noise=-87.9454dBm, SNR=34.3435dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.867 Mbps
+RX Energy for 1024 bytes: 3.58364e-05 J (Duration: 7.96364e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.3229dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+Last RSSI: -59.6224 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 13, Distance: 160.31219541881404
+[13.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7565dBm, Noise=-87.9454dBm, SNR=28.1889dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3469 Mbps
+RX Energy for 1024 bytes: 3.78687e-05 J (Duration: 8.41526e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.7771dBm, Noise=-87.9454dBm, SNR=22.1683dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6816 Mbps
+Last RSSI: -65.7771 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 14, Distance: 180.27756377319955
+[14.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.776dBm, Noise=-87.9454dBm, SNR=32.1694dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10803e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7966dBm, Noise=-87.9454dBm, SNR=26.1488dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2563 Mbps
+Last RSSI: -61.7966 dBm
+SNR calculation: TX=30dBm, RX=-62.7091dBm, Noise=-87.9454dBm, SNR=25.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 14.0202 dB Capacity: 94.2698 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+TX Duration: 9.29123e-05s for 1024 bytes
+Time: 15, Distance: 200.24984394500794
+[15.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-61.6885dBm, Noise=-87.9454dBm, SNR=26.2569dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.371 Mbps
+RX Energy for 1024 bytes: 3.86533e-05 J (Duration: 8.58961e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2363dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1692 Mbps
+Last RSSI: -67.7091 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 16, Distance: 180.27756377319952
+[16.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.7759dBm, Noise=-87.9454dBm, SNR=32.1695dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10802e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2565 Mbps
+Last RSSI: -61.7965 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 17, Distance: 160.31219541881404
+[17.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7564dBm, Noise=-87.9454dBm, SNR=28.189dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3471 Mbps
+RX Energy for 1024 bytes: 3.78686e-05 J (Duration: 8.41525e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6818 Mbps
+Last RSSI: -65.777 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 18, Distance: 140.35668847618206
+[18.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6017dBm, Noise=-87.9454dBm, SNR=34.3437dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.868 Mbps
+RX Energy for 1024 bytes: 3.58363e-05 J (Duration: 7.96363e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6223dBm, Noise=-87.9454dBm, SNR=28.3231dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4793 Mbps
+Last RSSI: -59.6223 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 19, Distance: 120.41594578792302
+[19.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2707dBm, Noise=-87.9454dBm, SNR=30.6747dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.7052 Mbps
+RX Energy for 1024 bytes: 3.6973e-05 J (Duration: 8.21622e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2913dBm, Noise=-87.9454dBm, SNR=24.6541dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6224 Mbps
+Last RSSI: -63.2913 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 20, Distance: 100.49875621120896
+[20.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7002dBm, Noise=-87.9454dBm, SNR=37.2452dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50604e-05 J (Duration: 7.79121e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.7208dBm, Noise=-87.9454dBm, SNR=31.2246dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.7208 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 21, Distance: 80.62257748298555
+[21.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7861dBm, Noise=-87.9454dBm, SNR=34.1593dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.717 Mbps
+RX Energy for 1024 bytes: 3.5889e-05 J (Duration: 7.97534e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.8067dBm, Noise=-87.9454dBm, SNR=28.1387dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2973 Mbps
+Last RSSI: -59.8067 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 22, Distance: 60.82762530298223
+[22.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3389dBm, Noise=-87.9454dBm, SNR=41.6064dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56697e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3595dBm, Noise=-87.9454dBm, SNR=35.5858dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3595 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 23, Distance: 41.231056256176615
+[23.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9613dBm, Noise=-87.9454dBm, SNR=39.9841dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.14 Mbps
+RX Energy for 1024 bytes: 3.44074e-05 J (Duration: 7.64608e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9819dBm, Noise=-87.9454dBm, SNR=33.9635dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.556 Mbps
+Last RSSI: -53.9819 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 24, Distance: 22.360679774997887
+[24.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6464dBm, Noise=-87.9454dBm, SNR=50.299dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24458e-05 J (Duration: 7.21018e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.667dBm, Noise=-87.9454dBm, SNR=44.2784dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+Last RSSI: -43.667 dBm
+SNR calculation: TX=30dBm, RX=-36.6777dBm, Noise=-87.9454dBm, SNR=51.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 17.0984 dB Capacity: 114.157 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+TX Duration: 7.36322e-05s for 1024 bytes
+Time: 25, Distance: 10
+[25.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-35.6571dBm, Noise=-87.9454dBm, SNR=52.2883dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 114.715 Mbps
+RX Energy for 1024 bytes: 3.21353e-05 J (Duration: 7.14118e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+Last RSSI: -41.6777 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 26, Distance: 22.36067977499791
+[26.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6472dBm, Noise=-87.9454dBm, SNR=50.2982dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24459e-05 J (Duration: 7.21021e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6678dBm, Noise=-87.9454dBm, SNR=44.2776dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.014 Mbps
+Last RSSI: -43.6678 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 27, Distance: 41.231056256176636
+[27.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9619dBm, Noise=-87.9454dBm, SNR=39.9835dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.139 Mbps
+RX Energy for 1024 bytes: 3.44075e-05 J (Duration: 7.64611e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9825dBm, Noise=-87.9454dBm, SNR=33.9629dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+Last RSSI: -53.9825 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 28, Distance: 60.82762530298224
+[28.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3393dBm, Noise=-87.9454dBm, SNR=41.6061dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56699e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3599dBm, Noise=-87.9454dBm, SNR=35.5855dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3599 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 29, Distance: 80.62257748298555
+[29.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7864dBm, Noise=-87.9454dBm, SNR=34.159dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.716 Mbps
+RX Energy for 1024 bytes: 3.58891e-05 J (Duration: 7.97535e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.807dBm, Noise=-87.9454dBm, SNR=28.1384dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.297 Mbps
+Last RSSI: -59.807 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 30, Distance: 100.49875621120897
+[30.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7004dBm, Noise=-87.9454dBm, SNR=37.245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50605e-05 J (Duration: 7.79122e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.721dBm, Noise=-87.9454dBm, SNR=31.2244dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.721 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 31, Distance: 120.41594578792304
+[31.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2709dBm, Noise=-87.9454dBm, SNR=30.6745dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.705 Mbps
+RX Energy for 1024 bytes: 3.69731e-05 J (Duration: 8.21624e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2915dBm, Noise=-87.9454dBm, SNR=24.6539dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6221 Mbps
+Last RSSI: -63.2915 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 32, Distance: 140.3566884761821
+[32.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6018dBm, Noise=-87.9454dBm, SNR=34.3435dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.867 Mbps
+RX Energy for 1024 bytes: 3.58364e-05 J (Duration: 7.96364e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.3229dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+Last RSSI: -59.6224 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 33, Distance: 160.31219541881404
+[33.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7565dBm, Noise=-87.9454dBm, SNR=28.1889dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3469 Mbps
+RX Energy for 1024 bytes: 3.78687e-05 J (Duration: 8.41526e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.7771dBm, Noise=-87.9454dBm, SNR=22.1683dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6816 Mbps
+Last RSSI: -65.7771 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 34, Distance: 180.27756377319952
+[34.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.776dBm, Noise=-87.9454dBm, SNR=32.1694dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10803e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7966dBm, Noise=-87.9454dBm, SNR=26.1488dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2563 Mbps
+Last RSSI: -61.7966 dBm
+SNR calculation: TX=30dBm, RX=-62.7091dBm, Noise=-87.9454dBm, SNR=25.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 14.0202 dB Capacity: 94.2698 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+TX Duration: 9.29123e-05s for 1024 bytes
+Time: 35, Distance: 200.2498439450079
+[35.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-61.6885dBm, Noise=-87.9454dBm, SNR=26.2569dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.371 Mbps
+RX Energy for 1024 bytes: 3.86533e-05 J (Duration: 8.58961e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2363dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1692 Mbps
+Last RSSI: -67.7091 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 36, Distance: 180.27756377319952
+[36.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.7759dBm, Noise=-87.9454dBm, SNR=32.1695dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10802e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+Last RSSI: -61.7965 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 37, Distance: 160.31219541881404
+[37.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7564dBm, Noise=-87.9454dBm, SNR=28.189dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3471 Mbps
+RX Energy for 1024 bytes: 3.78686e-05 J (Duration: 8.41525e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6818 Mbps
+Last RSSI: -65.777 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 38, Distance: 140.35668847618206
+[38.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6017dBm, Noise=-87.9454dBm, SNR=34.3437dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.868 Mbps
+RX Energy for 1024 bytes: 3.58363e-05 J (Duration: 7.96363e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6223dBm, Noise=-87.9454dBm, SNR=28.3231dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4793 Mbps
+Last RSSI: -59.6223 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 39, Distance: 120.41594578792302
+[39.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2707dBm, Noise=-87.9454dBm, SNR=30.6747dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.7052 Mbps
+RX Energy for 1024 bytes: 3.6973e-05 J (Duration: 8.21622e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2913dBm, Noise=-87.9454dBm, SNR=24.6541dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6223 Mbps
+Last RSSI: -63.2913 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 40, Distance: 100.49875621120894
+[40.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7002dBm, Noise=-87.9454dBm, SNR=37.2452dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50604e-05 J (Duration: 7.79121e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.7208dBm, Noise=-87.9454dBm, SNR=31.2246dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.7208 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 41, Distance: 80.62257748298552
+[41.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7861dBm, Noise=-87.9454dBm, SNR=34.1593dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.717 Mbps
+RX Energy for 1024 bytes: 3.5889e-05 J (Duration: 7.97534e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.8067dBm, Noise=-87.9454dBm, SNR=28.1387dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2973 Mbps
+Last RSSI: -59.8067 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 42, Distance: 60.82762530298221
+[42.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3389dBm, Noise=-87.9454dBm, SNR=41.6065dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56697e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3595dBm, Noise=-87.9454dBm, SNR=35.5859dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3595 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 43, Distance: 41.2310562561766
+[43.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9613dBm, Noise=-87.9454dBm, SNR=39.9841dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.14 Mbps
+RX Energy for 1024 bytes: 3.44074e-05 J (Duration: 7.64608e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9819dBm, Noise=-87.9454dBm, SNR=33.9635dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.556 Mbps
+Last RSSI: -53.9819 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 44, Distance: 22.360679774997877
+[44.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6463dBm, Noise=-87.9454dBm, SNR=50.2991dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24458e-05 J (Duration: 7.21018e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6669dBm, Noise=-87.9454dBm, SNR=44.2785dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+Last RSSI: -43.6669 dBm
+SNR calculation: TX=30dBm, RX=-36.6777dBm, Noise=-87.9454dBm, SNR=51.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 17.0984 dB Capacity: 114.157 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+TX Duration: 7.36322e-05s for 1024 bytes
+Time: 45, Distance: 10
+[45.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-35.6571dBm, Noise=-87.9454dBm, SNR=52.2883dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 114.715 Mbps
+RX Energy for 1024 bytes: 3.21353e-05 J (Duration: 7.14118e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+Last RSSI: -41.6777 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 46, Distance: 22.360679774997916
+[46.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6472dBm, Noise=-87.9454dBm, SNR=50.2981dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24459e-05 J (Duration: 7.21021e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6678dBm, Noise=-87.9454dBm, SNR=44.2775dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.014 Mbps
+Last RSSI: -43.6678 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 47, Distance: 41.23105625617664
+[47.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9618dBm, Noise=-87.9454dBm, SNR=39.9835dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.139 Mbps
+RX Energy for 1024 bytes: 3.44075e-05 J (Duration: 7.64611e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9824dBm, Noise=-87.9454dBm, SNR=33.9629dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+Last RSSI: -53.9824 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 48, Distance: 60.82762530298225
+[48.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3393dBm, Noise=-87.9454dBm, SNR=41.6061dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56699e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3599dBm, Noise=-87.9454dBm, SNR=35.5855dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3599 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 49, Distance: 80.62257748298558
+[49.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7864dBm, Noise=-87.9454dBm, SNR=34.159dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.716 Mbps
+RX Energy for 1024 bytes: 3.58891e-05 J (Duration: 7.97535e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.807dBm, Noise=-87.9454dBm, SNR=28.1384dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.297 Mbps
+Last RSSI: -59.807 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 50, Distance: 100.49875621120898
+[50.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7004dBm, Noise=-87.9454dBm, SNR=37.245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50605e-05 J (Duration: 7.79122e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.721dBm, Noise=-87.9454dBm, SNR=31.2244dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.721 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 51, Distance: 120.41594578792304
+[51.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2709dBm, Noise=-87.9454dBm, SNR=30.6745dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.705 Mbps
+RX Energy for 1024 bytes: 3.69731e-05 J (Duration: 8.21624e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2915dBm, Noise=-87.9454dBm, SNR=24.6539dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6221 Mbps
+Last RSSI: -63.2915 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 52, Distance: 140.3566884761821
+[52.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6018dBm, Noise=-87.9454dBm, SNR=34.3435dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.867 Mbps
+RX Energy for 1024 bytes: 3.58364e-05 J (Duration: 7.96364e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.3229dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+Last RSSI: -59.6224 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 53, Distance: 160.31219541881407
+[53.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7565dBm, Noise=-87.9454dBm, SNR=28.1889dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3469 Mbps
+RX Energy for 1024 bytes: 3.78687e-05 J (Duration: 8.41526e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.7771dBm, Noise=-87.9454dBm, SNR=22.1683dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6816 Mbps
+Last RSSI: -65.7771 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 54, Distance: 180.27756377319957
+[54.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.776dBm, Noise=-87.9454dBm, SNR=32.1694dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10803e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7966dBm, Noise=-87.9454dBm, SNR=26.1488dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2563 Mbps
+Last RSSI: -61.7966 dBm
+SNR calculation: TX=30dBm, RX=-62.7091dBm, Noise=-87.9454dBm, SNR=25.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 14.0202 dB Capacity: 94.2698 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+TX Duration: 9.29123e-05s for 1024 bytes
+Time: 55, Distance: 200.24984394500797
+[55.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-61.6885dBm, Noise=-87.9454dBm, SNR=26.2569dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.371 Mbps
+RX Energy for 1024 bytes: 3.86533e-05 J (Duration: 8.58961e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2363dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1692 Mbps
+Last RSSI: -67.7091 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 56, Distance: 180.27756377319955
+[56.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.7759dBm, Noise=-87.9454dBm, SNR=32.1695dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10802e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2565 Mbps
+Last RSSI: -61.7965 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 57, Distance: 160.3121954188141
+[57.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7564dBm, Noise=-87.9454dBm, SNR=28.189dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3471 Mbps
+RX Energy for 1024 bytes: 3.78686e-05 J (Duration: 8.41525e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6818 Mbps
+Last RSSI: -65.777 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 58, Distance: 140.35668847618211
+[58.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6017dBm, Noise=-87.9454dBm, SNR=34.3437dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.868 Mbps
+RX Energy for 1024 bytes: 3.58363e-05 J (Duration: 7.96363e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6223dBm, Noise=-87.9454dBm, SNR=28.3231dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4793 Mbps
+Last RSSI: -59.6223 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 59, Distance: 120.41594578792308
+[59.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2707dBm, Noise=-87.9454dBm, SNR=30.6747dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.7052 Mbps
+RX Energy for 1024 bytes: 3.6973e-05 J (Duration: 8.21622e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2913dBm, Noise=-87.9454dBm, SNR=24.6541dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6224 Mbps
+Last RSSI: -63.2913 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 60, Distance: 100.49875621120903
+[60.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7002dBm, Noise=-87.9454dBm, SNR=37.2452dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50604e-05 J (Duration: 7.79121e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.7208dBm, Noise=-87.9454dBm, SNR=31.2246dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.7208 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 61, Distance: 80.62257748298558
+[61.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7861dBm, Noise=-87.9454dBm, SNR=34.1593dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.717 Mbps
+RX Energy for 1024 bytes: 3.5889e-05 J (Duration: 7.97534e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.8067dBm, Noise=-87.9454dBm, SNR=28.1387dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2973 Mbps
+Last RSSI: -59.8067 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 62, Distance: 60.82762530298227
+[62.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3389dBm, Noise=-87.9454dBm, SNR=41.6065dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56697e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3595dBm, Noise=-87.9454dBm, SNR=35.5859dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3595 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 63, Distance: 41.23105625617666
+[63.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9613dBm, Noise=-87.9454dBm, SNR=39.9841dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.14 Mbps
+RX Energy for 1024 bytes: 3.44074e-05 J (Duration: 7.64608e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9819dBm, Noise=-87.9454dBm, SNR=33.9635dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.556 Mbps
+Last RSSI: -53.9819 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 64, Distance: 22.360679774997934
+[64.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6464dBm, Noise=-87.9454dBm, SNR=50.299dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24458e-05 J (Duration: 7.21018e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.667dBm, Noise=-87.9454dBm, SNR=44.2784dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+Last RSSI: -43.667 dBm
+SNR calculation: TX=30dBm, RX=-36.6777dBm, Noise=-87.9454dBm, SNR=51.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 17.0984 dB Capacity: 114.157 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+TX Duration: 7.36322e-05s for 1024 bytes
+Time: 65, Distance: 10
+[65.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-35.6571dBm, Noise=-87.9454dBm, SNR=52.2883dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 114.715 Mbps
+RX Energy for 1024 bytes: 3.21353e-05 J (Duration: 7.14118e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+Last RSSI: -41.6777 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 66, Distance: 22.360679774997863
+[66.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6473dBm, Noise=-87.9454dBm, SNR=50.2981dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24459e-05 J (Duration: 7.21021e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6679dBm, Noise=-87.9454dBm, SNR=44.2775dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.014 Mbps
+Last RSSI: -43.6679 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 67, Distance: 41.23105625617658
+[67.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9619dBm, Noise=-87.9454dBm, SNR=39.9835dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.139 Mbps
+RX Energy for 1024 bytes: 3.44075e-05 J (Duration: 7.64611e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9825dBm, Noise=-87.9454dBm, SNR=33.9629dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+Last RSSI: -53.9825 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 68, Distance: 60.827625302982185
+[68.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3393dBm, Noise=-87.9454dBm, SNR=41.6061dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56699e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3599dBm, Noise=-87.9454dBm, SNR=35.5855dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3599 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 69, Distance: 80.62257748298549
+[69.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7864dBm, Noise=-87.9454dBm, SNR=34.159dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.716 Mbps
+RX Energy for 1024 bytes: 3.58891e-05 J (Duration: 7.97535e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.807dBm, Noise=-87.9454dBm, SNR=28.1384dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.297 Mbps
+Last RSSI: -59.807 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 70, Distance: 100.49875621120893
+[70.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7004dBm, Noise=-87.9454dBm, SNR=37.245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50605e-05 J (Duration: 7.79122e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.721dBm, Noise=-87.9454dBm, SNR=31.2244dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.721 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 71, Distance: 120.41594578792298
+[71.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2709dBm, Noise=-87.9454dBm, SNR=30.6745dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.705 Mbps
+RX Energy for 1024 bytes: 3.69731e-05 J (Duration: 8.21624e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2915dBm, Noise=-87.9454dBm, SNR=24.6539dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6221 Mbps
+Last RSSI: -63.2915 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 72, Distance: 140.35668847618203
+[72.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6018dBm, Noise=-87.9454dBm, SNR=34.3435dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.867 Mbps
+RX Energy for 1024 bytes: 3.58364e-05 J (Duration: 7.96364e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.3229dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+Last RSSI: -59.6224 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 73, Distance: 160.31219541881399
+[73.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7565dBm, Noise=-87.9454dBm, SNR=28.1889dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3469 Mbps
+RX Energy for 1024 bytes: 3.78687e-05 J (Duration: 8.41526e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.7771dBm, Noise=-87.9454dBm, SNR=22.1683dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6816 Mbps
+Last RSSI: -65.7771 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 74, Distance: 180.27756377319946
+[74.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.776dBm, Noise=-87.9454dBm, SNR=32.1694dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10803e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7966dBm, Noise=-87.9454dBm, SNR=26.1488dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2563 Mbps
+Last RSSI: -61.7966 dBm
+SNR calculation: TX=30dBm, RX=-62.7091dBm, Noise=-87.9454dBm, SNR=25.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 14.0202 dB Capacity: 94.2698 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+TX Duration: 9.29123e-05s for 1024 bytes
+Time: 75, Distance: 200.24984394500788
+[75.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-61.6885dBm, Noise=-87.9454dBm, SNR=26.2569dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.371 Mbps
+RX Energy for 1024 bytes: 3.86533e-05 J (Duration: 8.58961e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2363dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1692 Mbps
+Last RSSI: -67.7091 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 76, Distance: 180.2775637731995
+[76.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.7759dBm, Noise=-87.9454dBm, SNR=32.1695dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10802e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+Last RSSI: -61.7965 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 77, Distance: 160.312195418814
+[77.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7564dBm, Noise=-87.9454dBm, SNR=28.189dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3471 Mbps
+RX Energy for 1024 bytes: 3.78686e-05 J (Duration: 8.41525e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6818 Mbps
+Last RSSI: -65.777 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 78, Distance: 140.356688476182
+[78.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6017dBm, Noise=-87.9454dBm, SNR=34.3437dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.868 Mbps
+RX Energy for 1024 bytes: 3.58363e-05 J (Duration: 7.96363e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6223dBm, Noise=-87.9454dBm, SNR=28.3231dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4793 Mbps
+Last RSSI: -59.6223 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 79, Distance: 120.41594578792298
+[79.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2707dBm, Noise=-87.9454dBm, SNR=30.6747dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.7052 Mbps
+RX Energy for 1024 bytes: 3.6973e-05 J (Duration: 8.21622e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2913dBm, Noise=-87.9454dBm, SNR=24.6541dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6223 Mbps
+Last RSSI: -63.2913 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 80, Distance: 100.49875621120893
+[80.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7002dBm, Noise=-87.9454dBm, SNR=37.2452dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50604e-05 J (Duration: 7.79121e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.7208dBm, Noise=-87.9454dBm, SNR=31.2246dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.7208 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 81, Distance: 80.62257748298549
+[81.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7861dBm, Noise=-87.9454dBm, SNR=34.1593dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.717 Mbps
+RX Energy for 1024 bytes: 3.5889e-05 J (Duration: 7.97534e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.8067dBm, Noise=-87.9454dBm, SNR=28.1387dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2973 Mbps
+Last RSSI: -59.8067 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 82, Distance: 60.82762530298217
+[82.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3389dBm, Noise=-87.9454dBm, SNR=41.6064dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56697e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3595dBm, Noise=-87.9454dBm, SNR=35.5858dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3595 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 83, Distance: 41.231056256176565
+[83.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9613dBm, Noise=-87.9454dBm, SNR=39.9841dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.14 Mbps
+RX Energy for 1024 bytes: 3.44074e-05 J (Duration: 7.64608e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9819dBm, Noise=-87.9454dBm, SNR=33.9635dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.556 Mbps
+Last RSSI: -53.9819 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 84, Distance: 22.360679774997845
+[84.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6463dBm, Noise=-87.9454dBm, SNR=50.2991dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24458e-05 J (Duration: 7.21018e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6669dBm, Noise=-87.9454dBm, SNR=44.2785dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+Last RSSI: -43.6669 dBm
+SNR calculation: TX=30dBm, RX=-36.6777dBm, Noise=-87.9454dBm, SNR=51.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 17.0984 dB Capacity: 114.157 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+TX Mode: OfdmRate6Mbps, SNR: 16.6528 dB Capacity: 111.256 Mbps
+TX Duration: 7.36322e-05s for 1024 bytes
+Time: 85, Distance: 10
+[85.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-35.6571dBm, Noise=-87.9454dBm, SNR=52.2883dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 114.715 Mbps
+RX Energy for 1024 bytes: 3.21353e-05 J (Duration: 7.14118e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-41.6777dBm, Noise=-87.9454dBm, SNR=46.2677dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 111.256 Mbps
+Last RSSI: -41.6777 dBm
+SNR calculation: TX=25dBm, RX=-48.6674dBm, Noise=-87.9454dBm, SNR=39.278dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9415 dB Capacity: 106.638 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+SNR calculation: TX=30dBm, RX=-43.6674dBm, Noise=-87.9454dBm, SNR=44.278dB
+TX Mode: OfdmRate6Mbps, SNR: 16.4619 dB Capacity: 110.015 Mbps
+TX Duration: 7.44627e-05s for 1024 bytes
+Time: 86, Distance: 22.360679774997948
+[86.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-37.6472dBm, Noise=-87.9454dBm, SNR=50.2982dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 113.617 Mbps
+RX Energy for 1024 bytes: 3.24459e-05 J (Duration: 7.21021e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-43.6678dBm, Noise=-87.9454dBm, SNR=44.2776dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 110.014 Mbps
+Last RSSI: -43.6678 dBm
+SNR calculation: TX=30dBm, RX=-48.9822dBm, Noise=-87.9454dBm, SNR=38.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.9065 dB Capacity: 106.412 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+SNR calculation: TX=25dBm, RX=-53.9822dBm, Noise=-87.9454dBm, SNR=33.9632dB
+TX Mode: OfdmRate6Mbps, SNR: 15.3101 dB Capacity: 102.555 Mbps
+TX Duration: 7.98789e-05s for 1024 bytes
+Time: 87, Distance: 41.23105625617667
+[87.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-47.9619dBm, Noise=-87.9454dBm, SNR=39.9835dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 107.139 Mbps
+RX Energy for 1024 bytes: 3.44075e-05 J (Duration: 7.64611e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-53.9825dBm, Noise=-87.9454dBm, SNR=33.9629dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.555 Mbps
+Last RSSI: -53.9825 dBm
+SNR calculation: TX=25dBm, RX=-57.3597dBm, Noise=-87.9454dBm, SNR=30.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 14.8552 dB Capacity: 99.624 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+SNR calculation: TX=30dBm, RX=-52.3597dBm, Noise=-87.9454dBm, SNR=35.5857dB
+TX Mode: OfdmRate6Mbps, SNR: 15.5128 dB Capacity: 103.864 Mbps
+TX Duration: 7.88723e-05s for 1024 bytes
+Time: 88, Distance: 60.827625302982284
+[88.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-46.3393dBm, Noise=-87.9454dBm, SNR=41.6061dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 108.26 Mbps
+RX Energy for 1024 bytes: 3.40514e-05 J (Duration: 7.56699e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-52.3599dBm, Noise=-87.9454dBm, SNR=35.5855dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 103.864 Mbps
+Last RSSI: -52.3599 dBm
+SNR calculation: TX=30dBm, RX=-54.8068dBm, Noise=-87.9454dBm, SNR=33.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 15.2033 dB Capacity: 101.867 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+SNR calculation: TX=25dBm, RX=-59.8068dBm, Noise=-87.9454dBm, SNR=28.1386dB
+TX Mode: OfdmRate6Mbps, SNR: 14.493 dB Capacity: 97.2971 Mbps
+TX Duration: 8.41957e-05s for 1024 bytes
+Time: 89, Distance: 80.6225774829856
+[89.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-53.7864dBm, Noise=-87.9454dBm, SNR=34.159dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.716 Mbps
+RX Energy for 1024 bytes: 3.58891e-05 J (Duration: 7.97535e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-59.807dBm, Noise=-87.9454dBm, SNR=28.1384dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.297 Mbps
+Last RSSI: -59.807 dBm
+SNR calculation: TX=25dBm, RX=-61.7209dBm, Noise=-87.9454dBm, SNR=26.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1871 dB Capacity: 95.3366 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+SNR calculation: TX=30dBm, RX=-56.7209dBm, Noise=-87.9454dBm, SNR=31.2245dB
+TX Mode: OfdmRate6Mbps, SNR: 14.945 dB Capacity: 100.202 Mbps
+TX Duration: 8.17551e-05s for 1024 bytes
+Time: 90, Distance: 100.49875621120903
+[90.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-50.7004dBm, Noise=-87.9454dBm, SNR=37.245dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 105.144 Mbps
+RX Energy for 1024 bytes: 3.50605e-05 J (Duration: 7.79122e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-56.721dBm, Noise=-87.9454dBm, SNR=31.2244dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 100.202 Mbps
+Last RSSI: -56.721 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 91, Distance: 120.41594578792306
+[91.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2709dBm, Noise=-87.9454dBm, SNR=30.6745dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.705 Mbps
+RX Energy for 1024 bytes: 3.69731e-05 J (Duration: 8.21624e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2915dBm, Noise=-87.9454dBm, SNR=24.6539dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6221 Mbps
+Last RSSI: -63.2915 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 92, Distance: 140.35668847618211
+[92.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6018dBm, Noise=-87.9454dBm, SNR=34.3435dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.867 Mbps
+RX Energy for 1024 bytes: 3.58364e-05 J (Duration: 7.96364e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.3229dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+Last RSSI: -59.6224 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 93, Distance: 160.3121954188141
+[93.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7565dBm, Noise=-87.9454dBm, SNR=28.1889dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3469 Mbps
+RX Energy for 1024 bytes: 3.78687e-05 J (Duration: 8.41526e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.7771dBm, Noise=-87.9454dBm, SNR=22.1683dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6816 Mbps
+Last RSSI: -65.7771 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 94, Distance: 180.27756377319957
+[94.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.776dBm, Noise=-87.9454dBm, SNR=32.1694dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10803e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7966dBm, Noise=-87.9454dBm, SNR=26.1488dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2563 Mbps
+Last RSSI: -61.7966 dBm
+SNR calculation: TX=30dBm, RX=-62.7091dBm, Noise=-87.9454dBm, SNR=25.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 14.0202 dB Capacity: 94.2698 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2362dB
+TX Mode: OfdmRate6Mbps, SNR: 13.0613 dB Capacity: 88.1691 Mbps
+TX Duration: 9.29123e-05s for 1024 bytes
+Time: 95, Distance: 200.24984394500797
+[95.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-61.6885dBm, Noise=-87.9454dBm, SNR=26.2569dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.371 Mbps
+RX Energy for 1024 bytes: 3.86533e-05 J (Duration: 8.58961e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-67.7091dBm, Noise=-87.9454dBm, SNR=20.2363dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 88.1692 Mbps
+Last RSSI: -67.7091 dBm
+SNR calculation: TX=25dBm, RX=-66.7965dBm, Noise=-87.9454dBm, SNR=21.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 13.2529 dB Capacity: 89.3832 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+TX Mode: OfdmRate6Mbps, SNR: 14.1745 dB Capacity: 95.2564 Mbps
+TX Duration: 8.59995e-05s for 1024 bytes
+Time: 96, Distance: 180.27756377319955
+[96.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-55.7759dBm, Noise=-87.9454dBm, SNR=32.1695dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 101.036 Mbps
+RX Energy for 1024 bytes: 3.64861e-05 J (Duration: 8.10802e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-61.7965dBm, Noise=-87.9454dBm, SNR=26.1489dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 95.2565 Mbps
+Last RSSI: -61.7965 dBm
+SNR calculation: TX=30dBm, RX=-60.777dBm, Noise=-87.9454dBm, SNR=27.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 14.3406 dB Capacity: 96.3201 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+TX Mode: OfdmRate6Mbps, SNR: 13.4573 dB Capacity: 90.6817 Mbps
+TX Duration: 9.0338e-05s for 1024 bytes
+Time: 97, Distance: 160.31219541881407
+[97.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-59.7564dBm, Noise=-87.9454dBm, SNR=28.189dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.3471 Mbps
+RX Energy for 1024 bytes: 3.78686e-05 J (Duration: 8.41525e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-65.777dBm, Noise=-87.9454dBm, SNR=22.1684dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 90.6818 Mbps
+Last RSSI: -65.777 dBm
+SNR calculation: TX=25dBm, RX=-64.6224dBm, Noise=-87.9454dBm, SNR=23.323dB
+TX Mode: OfdmRate6Mbps, SNR: 13.6778 dB Capacity: 92.085 Mbps
+Increased Sender: TX: 30 TxCurrent: 0.015
+Increased Receiver: TX: 36.0206 TxCurrent: 0.015
+Cause: Reached Sufficent Signal Conditions 
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+SNR calculation: TX=30dBm, RX=-59.6224dBm, Noise=-87.9454dBm, SNR=28.323dB
+TX Mode: OfdmRate6Mbps, SNR: 14.5214 dB Capacity: 97.4792 Mbps
+TX Duration: 8.40384e-05s for 1024 bytes
+Time: 98, Distance: 140.3566884761821
+[98.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=36.0206dBm, RX=-53.6017dBm, Noise=-87.9454dBm, SNR=34.3437dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 102.868 Mbps
+RX Energy for 1024 bytes: 3.58363e-05 J (Duration: 7.96363e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=30dBm, RX=-59.6223dBm, Noise=-87.9454dBm, SNR=28.3231dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 97.4793 Mbps
+Last RSSI: -59.6223 dBm
+SNR calculation: TX=30dBm, RX=-58.2914dBm, Noise=-87.9454dBm, SNR=29.654dB
+TX Mode: OfdmRate6Mbps, SNR: 14.7208 dB Capacity: 98.7601 Mbps
+Decrased Sender: TX: 25 TxCurrent: 0.015
+Decrased Receiver: TX: 31.0206 TxCurrent: 0.015
+Cause: Reached Excess Bandwidth
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+SNR calculation: TX=25dBm, RX=-63.2914dBm, Noise=-87.9454dBm, SNR=24.654dB
+TX Mode: OfdmRate6Mbps, SNR: 13.9189 dB Capacity: 93.6222 Mbps
+TX Duration: 8.75006e-05s for 1024 bytes
+Time: 99, Distance: 120.41594578792305
+[99.0001s] Node 1 received 1024 bytes from 10.1.1.2:49153
+Node 0 RX Power: 0.45 W
+SNR calculation: TX=31.0206dBm, RX=-57.2707dBm, Noise=-87.9454dBm, SNR=30.6747dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 99.7052 Mbps
+RX Energy for 1024 bytes: 3.6973e-05 J (Duration: 8.21622e-05s)
+Node 1 RX Power: 0.45 W
+SNR calculation: TX=25dBm, RX=-63.2913dBm, Noise=-87.9454dBm, SNR=24.6541dB
+RX Mode: OfdmRate6Mbps, Calculated Data Rate: 93.6223 Mbps
+Last RSSI: -63.2913 dBm
+Simulation complete. Results saved to output files.
