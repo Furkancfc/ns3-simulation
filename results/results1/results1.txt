@@ -1,0 +1,2 @@
+ Simulasyonda propagationloss modeli logdistancepropagationloss olduğunda ve düğüm 2 10m/s +x yönnünde hareket ettiğinde udp paketleri ulaşmıyor.
+

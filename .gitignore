@@ -4,9 +4,8 @@
 **/logs**/**
 **/CMakeFiles/**
 **/ns**/**
-**/results**/**
+**/.vs/**
 *.csv
 *.png
-*.py
 *.sh
 *.yuv
