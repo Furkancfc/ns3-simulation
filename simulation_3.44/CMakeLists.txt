@@ -11,13 +11,13 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_NAME "simulation_4")
-
+set(NS3_PATH "${CMAKE_ROOT}/../")
 # NS-3 version configuration
 set(NS3_VER "3.44") # or "3.44"
-set(PARALLEL_JOB 6)
+set(PARALLEL_JOB 12)
 
 function(setup_ns3_directory version)
-	set(NS3_DIR "${dir}/../ns-${version}")
+	set(NS3_DIR "${NS3_PATH}/ns-${version}")
 	set(NS3_INSTALL_DIR "${NS3_DIR}/install")
 	set(NS3_DIR "${NS3_DIR}" PARENT_SCOPE)
 	set(NS3_INSTALL_DIR "${NS3_INSTALL_DIR}" PARENT_SCOPE)

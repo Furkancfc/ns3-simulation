@@ -19,17 +19,15 @@ extern ns3::Time stepsTime;
 extern double frequency;
 extern ns3::PointerValue lossModel;
 extern ns3::Ptr<ns3::PacketSink> sink;
-extern uint32_t payloadSize;
 extern bool pcapTracing;
 extern ns3::Time endTime;
 extern ns3::Time beginTime;
 extern const ns3::Time interval;
 extern double signalThreshold;
-extern ns3::Ptr<ns3::Node> senderNode;
-extern ns3::Ptr<ns3::Node> receiverNode;
-extern std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> nodeDeviceEnergyModel;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> txPacketsMap;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> rxPacketsMap;
+extern NodeContainer apNodes;
+extern NodeContainer staNodes;
+extern uint32_t simple_udp_app_payload_size;
+
 
 struct NodeComponents {
     ns3::Ptr<ns3::energy::EnergySource> energySource;
@@ -60,13 +58,20 @@ struct InstantCounts {
     double duration;
     double energy;
 };
+
 extern std::map<ns3::Ptr<ns3::Node>,EnergyInstants> energyInstantsMap;
 extern std::map<ns3::Ptr<ns3::Node>, InstantCounts>
     previousRxDataInstant; // timeNow, currentPackets, currentEnergy
 extern std::map<Ptr<ns3::Node>, InstantCounts> previousTxDataInstant;
-
 extern std::map<Ptr<Node>, InstantCounts> txInstantMap;  // For sender
 extern std::map<Ptr<Node>, InstantCounts> rxInstantMap;  // For receiver
+extern std::map<Ptr<Node>, std::pair<uint64_t, double>>
+	txPacketsMap; // packetCount, energy
+extern std::map<Ptr<Node>, std::pair<uint64_t, double>>
+	rxPacketsMap; // packetCount, energy
+extern std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> nodeDeviceEnergyModel;
+extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> txPacketsMap;
+extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> rxPacketsMap;
 
 using NodeComponentMap = std::map<ns3::Ptr<ns3::Node>, NodeComponents>;
 extern NodeComponentMap nodeComponents;

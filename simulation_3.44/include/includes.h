@@ -71,6 +71,7 @@
 //
 #include "ns3/random-variable-stream.h"
 // Standard Library
+#include "ns3/netanim-module.h"
 
 #include <iostream>
 #include <fstream>

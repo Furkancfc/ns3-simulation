@@ -17,25 +17,51 @@ DataRate minBandwidth = DataRate(100 * 1e6);
 double frequency = 2.4e9; // Example frequency in Hz
 PointerValue lossModel;
 Ptr<PacketSink> sink = nullptr;
-uint32_t payloadSize = 1024; // Example payload size in bytes
 bool pcapTracing = true;
 Time beginTime = Seconds(5.0);
 const Time interval = Seconds(1.0);
-Time endTime = Minutes(10.0);
+Time endTime = Minutes(5.0);
 NodeComponentMap nodeComponents;
+std::map<ns3::Ptr<ns3::Node>, EnergyInstants> energyInstantsMap;
+std::map<ns3::Ptr<ns3::Node>, InstantCounts>
+	previousRxDataInstant; // timeNow, currentPackets, currentEnergy
+std::map<Ptr<ns3::Node>, InstantCounts> previousTxDataInstant;
+std::map<Ptr<Node>, InstantCounts> txInstantMap; // For sender
+std::map<Ptr<Node>, InstantCounts> rxInstantMap; // For receiver
 std::map<Ptr<Node>, std::pair<uint64_t, double>>
 	txPacketsMap; // packetCount, energy
 std::map<Ptr<Node>, std::pair<uint64_t, double>>
 	rxPacketsMap; // packetCount, energy
-std::map<Ptr<Node>, InstantCounts>
-	previousRxDataInstant; // timeNow, currentPackets, currentEnergy
-std::map<Ptr<Node>, InstantCounts> previousTxDataInstant;
-std::map<Ptr<Node>, InstantCounts> txInstantMap; // For sender
-std::map<Ptr<Node>, InstantCounts> rxInstantMap; // For receiver
-Ptr<Node> senderNode;
-Ptr<Node> receiverNode;
-std::map<Ptr<Node>, EnergyInstants> energyInstantsMap;
+std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> nodeDeviceEnergyModel;
+uint32_t simple_udp_app_payload_size;
+
+NodeContainer apNodes;
+NodeContainer staNodes;
+
 // Core Module
+std::map<Ptr<Node>, Ptr<Handler>> handlers;
+std::map<Ptr<Node>, Ptr<SenderHandler>> senderHandlers;
+std::map<Ptr<Node>, Ptr<ReceiverHandler>> receiverHandlers;
+
+std::unordered_map<FileLogType, std::string> logTemplates{
+	{FileLogType::MovementLog, "nodes/{}/movement_log.csv"},
+	{FileLogType::TrafficLog, "nodes/{}/traffic_log.csv"},
+	{FileLogType::EventLog, "nodes/{}/event_log.csv"},
+	{FileLogType::EnergyLog, "nodes/{}/energy_log.csv"},
+	{FileLogType::EnergyCapacityLog, "nodes/{}/energy_log_capacity.csv"},
+	{FileLogType::DistanceEnergyLog, "nodes/{}/distance_energy.csv"},
+	{FileLogType::WifiPhyState, "nodes/{}/wifi_phy_stats.csv"},
+	{FileLogType::RxTxBandWidth, "nodes/{}/rx_tx_bandwidth_log.csv"},
+	{FileLogType::PathLoss, "nodes/{}/path_loss_results.csv"},
+	{FileLogType::RxTxGain, "nodes/{}/rx_tx_gain_log.csv"},
+	{FileLogType::RxTxValues, "nodes/{}/rx_tx_values.csv"},
+	{FileLogType::RxTxPacket, "nodes/{}/rx_tx_packet_log.csv"},
+	{FileLogType::FlowMonitor, "nodes/{}/flow_monitor{}:{}.csv"},
+	{FileLogType::SnrLog, "nodes/{}/snr_log.csv"},
+	{FileLogType::StdOut, "stdout.log"},
+	{FileLogType::EnergyTrace, "nodes/{}/energy_trace.csv"},
+	{FileLogType::Main, "nodes/{}/main.log"},
+	{FileLogType::Device, "nodes/{}/device.log"}};
 
 int main(int argc, char *argv[])
 {
@@ -61,27 +87,38 @@ int main(int argc, char *argv[])
 	minThresholdPower = env.count("MIN_THRESHOLD_POWER") ? std::stoi(env["MIN_THRESHOLD_POWER"]) : -40;
 	maxThresholdPower = env.count("MAX_THRESHOLD_POWER") ? std::stoi(env["MAX_THRESHOLD_POWER"]) : -30;
 	senderTxBegin = env.count("TX_BEGIN") ? std::stoi(env["TX_BEGIN"]) : 10;
-	bool sinkapprun = env.count("SINK_APP_RUN") ? std::stoi(env["SINK_APP_RUN"]) : 0;
+	bool sinkapprun = env.count("SINnode->GetDevice(1)K_APP_RUN") ? std::stoi(env["SINK_APP_RUN"]) : 0;
 	bool udpapprun = env.count("UDP_APP_RUN") ? std::stoi(env["UDP_APP_RUN"]) : 0;
 	std::string sinkappdatarate = env.count("SINK_APP_DATA_RATE") ? env["SINK_APP_DATA_RATE"] : "100Mbps";
-	std::string udpappdataraate = env.count("UDP_APP_DATA_RATE") ? env["UDP_APP_DATA_RATE"] : "100Mbps";
+	std::string udpAppDataRateEnv = env.count("UDP_APP_DATA_RATE") ? env["UDP_APP_DATA_RATE"] : "100Mbps";
+	simple_udp_app_payload_size = env.count("SIMPLE_UDP_PAYLOAD_SIZE") ? std::stoul(env["SIMPLE_UDP_PAYLOAD_SIZE"]) : 1024;
 	CreateLogDirectory();
 	OpenStdOut();
 	SaveSourceCode();
+	// AnimationInterface anim(std::format("{}/multi-node.xml",logDirectory));
 
-	// Open results files
+	// Open results filesflowMonitor
 	// Create nodes
 	NodeContainer nodes;
-	nodes.Create(2); // create 2 nodes
+	NodeContainer senderNodes;
+	NodeContainer receiverNodes;
+	nodes.Create(100); // create 2 nodes
+
 	InternetStackHelper internet;
 	internet.Install(nodes);
 
-	senderNode = nodes.Get(0);
-	receiverNode = nodes.Get(1);
-	txPacketsMap[senderNode] = {0, 0};
-	rxPacketsMap[receiverNode] = {0, 0};
-	// Configure Wi-Fi
-
+	for (int i = 0; i < nodes.GetN(); i++)
+	{
+		Ptr<Node> node = nodes.Get(i);
+		if (i < 1)
+		{
+			receiverNodes.Add(node);
+		}
+		else
+		{
+			senderNodes.Add(node);
+		}
+	}
 	WifiHelper wifiHelper;
 	wifiHelper.SetStandard(WIFI_STANDARD_80211ac);
 	wifiHelper.SetRemoteStationManager("ns3::MinstrelHtWifiManager");
@@ -106,16 +143,22 @@ int main(int argc, char *argv[])
 
 	// Configure the YansWifiChannel with a propagation loss model
 
-	Ptr<FriisPropagationLossModel> lm =
-		CreateObject<FriisPropagationLossModel>();
-	// lm->SetAttribute("Exponent", DoubleValue(0.0));
-	Ptr<ConstantSpeedPropagationDelayModel> delayModel =
-		CreateObject<ConstantSpeedPropagationDelayModel>();
+	Ptr<LogDistancePropagationLossModel> lm =
+		CreateObject<LogDistancePropagationLossModel>();
+	lm->SetAttribute("Exponent", DoubleValue(2.0));
+
+	Ptr<RandomPropagationDelayModel> dm =
+		CreateObject<RandomPropagationDelayModel>();
+	Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
+	uv->SetAttribute("Min", DoubleValue(0.000001)); // 1 microsecond
+	uv->SetAttribute("Max", DoubleValue(0.000010)); // 50 microseconds
+	dm->SetAttribute("Variable", PointerValue(uv));
+
 	lossModel = PointerValue(lm);
 	// Create the YansWifiChannel
 	Ptr<YansWifiChannel> channel = CreateObject<YansWifiChannel>();
 	channel->SetPropagationLossModel(lm);
-	channel->SetPropagationDelayModel(delayModel);
+	channel->SetPropagationDelayModel(dm);
 
 	// Ptr<JitterPropagationDelayModel> delayModel =
 	// CreateObject<JitterPropagationDelayModel> (); delayModel->SetAttribute
@@ -135,11 +178,9 @@ int main(int argc, char *argv[])
 
 	WifiMacHelper wifiMac;
 	// Define the AP and STA nodes
-	NodeContainer apNodes;
-	apNodes.Add(senderNode);
+	apNodes.Add(receiverNodes);
 
-	NodeContainer staNodes;
-	staNodes.Add(receiverNode);
+	staNodes.Add(senderNodes);
 
 	// Configure Network
 	Ssid ssid = Ssid("network");
@@ -165,14 +206,6 @@ int main(int argc, char *argv[])
 	GetNodeWifiNetDevice(apNodes.Get(0))
 		->GetPhy()
 		->SetTxPowerStart(senderTxBegin);
-	nodeComponents[senderNode].wifiNetDevice = GetNodeWifiNetDevice(apNodes.Get(0));
-	nodeComponents[receiverNode].wifiNetDevice = GetNodeWifiNetDevice(staNodes.Get(0));
-	auto mgrs = nodeComponents[senderNode].wifiNetDevice->GetRemoteStationManager();
-	mgrs->AddBasicMcs(WifiMode("HtMcs7"));
-	mgrs->AddBasicMcs(WifiMode("HtMcs7"));
-	auto mgrr = nodeComponents[receiverNode].wifiNetDevice->GetRemoteStationManager();
-	mgrr->AddBasicMcs(WifiMode("HtMcs7"));
-	mgrr->AddBasicMcs(WifiMode("HtMcs7"));
 
 	GetNodeWifiNetDevice(apNodes.Get(0))->GetPhy()->SetTxPowerEnd(senderTxBegin);
 	GetNodeWifiNetDevice(staNodes.Get(0))->GetPhy()->SetRxSensitivity(-80);
@@ -205,7 +238,6 @@ int main(int argc, char *argv[])
 	Ipv4InterfaceContainer apInterfaces = ipv4.Assign(apDevices);
 	Ipv4InterfaceContainer staInterfaces = ipv4.Assign(staDevices);
 	Ipv4GlobalRoutingHelper::PopulateRoutingTables();
-
 	if (pcapTracing)
 	{
 		std::string pcapDir = logDirectory;
@@ -218,59 +250,42 @@ int main(int argc, char *argv[])
 		wifiPhyHelper.EnablePcap(pcapPrefix, apDevices.Get(0), true);
 		wifiPhyHelper.EnablePcap(pcapPrefix, staDevices.Get(0), true);
 	}
+	for (int i = 0; i < apNodes.GetN(); i++)
+	{
+		auto ap = apNodes.Get(i);
+		receiverHandlers[ap] = CreateObject<ReceiverHandler>();
+		receiverHandlers[ap]->Initialize(ap);
+		ap->AggregateObject(receiverHandlers[ap]);
+		for (int i = 0; i < staNodes.GetN(); i++)
+		{
+			auto sta = staNodes.Get(i);
+			// **Sender Socket**
+			senderHandlers[sta] = CreateObject<SenderHandler>();
+			senderHandlers[sta]->Initialize(sta, ap);
+			sta->AggregateObject(senderHandlers[sta]);
+		}
+	}
+	for (int i = 0; i < nodes.GetN(); i++)
+	{
+		Ptr<Node> node = nodes.Get(i);
+		handlers[node] = node->GetObject<Handler>();
+	}
 #pragma region udp client server sockets
-	// **Receiver Socket**
+	// **Receiver Socket** for monitoring channel conditions, energy and power consumption per packet. This is a Simple UDP Application
 	uint16_t udpsocketport = 9; // UDP port
-
-	Ptr<Socket> receiverSocket =
-		Socket::CreateSocket(apNodes.Get(0), UdpSocketFactory::GetTypeId());
-	InetSocketAddress receiverAddress(apInterfaces.GetAddress(0), udpsocketport);
-	receiverSocket->Bind(receiverAddress);
-	receiverSocket->SetIpRecvTos(true);
-	receiverSocket->SetIpRecvTtl(true);
-	receiverSocket->SetAllowBroadcast(true);
-	receiverSocket->SetRecvCallback(MakeCallback(&RecvCallback));
-
-	// **Sender Socket**
-	Ptr<Socket> senderSocket =
-		Socket::CreateSocket(staNodes.Get(0), UdpSocketFactory::GetTypeId());
-	senderSocket->SetAllowBroadcast(true);
-	senderSocket->Bind();
-	senderSocket->SetIpTos(0);
-	senderSocket->SetIpTtl(0);
-	senderSocket->Connect(receiverAddress);
 #pragma endregion
 
-#pragma region onoff and sinkapp 
-	// *Sink and OnOff Applictaion for monitoring channel conditions*
-	uint16_t sinkappport = 8080;
-	Address sinkLocalAddress(
-		InetSocketAddress(apInterfaces.GetAddress(0), sinkappport));
-	PacketSinkHelper packetSinkHelper("ns3::UdpSocketFactory", sinkLocalAddress);
-
-	OnOffHelper onOff("ns3::UdpSocketFactory",
-					  InetSocketAddress(apInterfaces.GetAddress(0), sinkappport));
-	onOff.SetAttribute("DataRate", StringValue("1Gbps"));
-	onOff.SetAttribute("PacketSize", UintegerValue(1400));
-	onOff.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
-	onOff.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+#pragma region onoff and sinkapp
+	// *Sink and OnOff Applictaion for monitoring channel conditions* high traffic conditions
+	uint16_t sinkAppPort = 8080;
+	uint64_t onoffAppPacketSize = 1500;
 #pragma endregion
-// *Udp Client Server Application*
+// *Udp Client Server Application* for video streaming conditions
 #pragma region udp client and server app
-	uint32_t udpappport = 9999;
-	uint32_t packetSize = 1472;					// Packet size in bytes (MTU - IP and UDP headers)
-	uint32_t maxPacketCount = 0;				// 0 for unlimited packets
-	auto datarate = DataRate(udpappdataraate); // Data
-	UdpClientHelper client(staInterfaces.GetAddress(0), udpappport);
-	
-	Time interPacketInterval; // Interval between packets (10,000 packets per second)
-	// calculate interPacketInterval based on the data rate
-	interPacketInterval = Seconds((double)packetSize * 8 / datarate.GetBitRate());
-	client.SetAttribute("MaxPackets", UintegerValue(maxPacketCount));
-	client.SetAttribute("Interval", TimeValue(interPacketInterval));
-	client.SetAttribute("PacketSize", UintegerValue(packetSize));
-	UdpServerHelper server(udpappport);
-
+	uint32_t udpAppPort = 9999;
+	uint32_t udpAppPacketSize = 600;				   // Packet size in bytes (MTU - IP and UDP headers)
+	uint32_t udpAppMaxPacketCount = 0;				   // 0 for unlimited packets
+	auto udpAppDataRate = DataRate(udpAppDataRateEnv); // Data
 #pragma endregion
 	LogWifiNetDeviceProperties(apNodes.Get(0));
 	LogWifiNetDeviceProperties(staNodes.Get(0));
@@ -282,24 +297,25 @@ int main(int argc, char *argv[])
 		CreateObject<ListPositionAllocator>();
 	positionAlloc->Add(Vector(0.0, 0.0, 0.0));
 	PointerValue ptr;
+
 	smob.SetPositionAllocator(positionAlloc);
 	smob.SetMobilityModel(
 		"ns3::GaussMarkovMobilityModel",
 		"TimeStep", TimeValue(Seconds(0.1)), // frequent updates
 		"Alpha", DoubleValue(0.0),			 // fully random
 		"MeanVelocity", StringValue("ns3::UniformRandomVariable[Min=-20.0|Max=20.0]"),
-		"Bounds", BoxValue(Box(0.0, 500.0, 0.0, 500.0, 0.0, 0.0)) // 2D plane movement (z = constant)
+		"Bounds", BoxValue(Box(0.0, 400.0, 0.0, 400.0, 0.0, 400.0)) // 2D plane movement (z = constant)
 	);
-	smob.Install(senderNode);
+	smob.Install(senderNodes);
 	// Set the mobility model for the receiver node
 	MobilityHelper rmob;
 	positionAlloc = CreateObject<ListPositionAllocator>();
 	positionAlloc->Add(Vector(0.0, 0.0, 0.0));
 	rmob.SetPositionAllocator(positionAlloc);
 	rmob.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-	rmob.Install(receiverNode);
+	rmob.Install(receiverNodes);
 
-	// **Energy Model Configuration**
+	// **Energy Model Configuration*400*
 	BasicEnergySourceHelper basicSourceHelper;
 	basicSourceHelper.Set("BasicEnergySourceInitialEnergyJ",
 						  DoubleValue(1000.0)); // Initial energyex
@@ -314,6 +330,7 @@ int main(int argc, char *argv[])
 	// Create and configure the linear current model
 	Ptr<LinearWifiTxCurrentModel> txCurrentModel =
 		CreateObject<LinearWifiTxCurrentModel>();
+
 	txCurrentModel->SetAttribute("Eta",
 								 DoubleValue(0.66));		   // Efficiency factor (33%)
 	txCurrentModel->SetAttribute("Voltage", DoubleValue(3.0)); // 3V supply
@@ -331,8 +348,28 @@ int main(int argc, char *argv[])
 	DeviceEnergyModelContainer staDeviceEnergyContainer =
 		radioEnergyHelper.Install(staDevices, staEnergySourceContainer);
 
-	nodeComponents[senderNode].mobilityModel = GetNodeMobilityModel(senderNode);
-	nodeComponents[receiverNode].mobilityModel = GetNodeMobilityModel(receiverNode);
+	for (int i = 0; i < nodes.GetN(); i++)
+	{
+		Ptr<Node> node = nodes.Get(i);
+		nodeComponents[node].wifiNetDevice = GetNodeWifiNetDevice(node);
+		nodeComponents[node].wifiNetDevice = GetNodeWifiNetDevice(node);
+		auto mgr = nodeComponents[node].wifiNetDevice->GetRemoteStationManager();
+		mgr->AddBasicMcs(WifiMode("HtMcs7"));
+		mgr->AddBasicMcs(WifiMode("HtMcs7"));
+		txPacketsMap[node];
+		rxPacketsMap[node];
+		energyInstantsMap[node];
+		previousRxDataInstant[node];
+		previousTxDataInstant[node];
+	}
+	for (int i = 0; i < senderNodes.GetN(); i++)
+	{
+		nodeComponents[senderNodes.Get(i)].mobilityModel = GetNodeMobilityModel(senderNodes.Get(i));
+	}
+	for (int i = 0; i < receiverNodes.GetN(); i++)
+	{
+		nodeComponents[receiverNodes.Get(i)].mobilityModel = GetNodeMobilityModel(receiverNodes.Get(i));
+	}
 	for (int i = 0; i < apDeviceEnergyContainer.GetN(); i++)
 	{
 		Ptr<Node> node = apNodes.Get(i);
@@ -351,94 +388,116 @@ int main(int argc, char *argv[])
 		nodeComponents[node].wifiRadioEnergyModel =
 			DynamicCast<WifiRadioEnergyModel>(staDeviceEnergyContainer.Get(i));
 	}
-	previousRxDataInstant[senderNode];
-	previousRxDataInstant[receiverNode];
-	energyInstantsMap[senderNode];
-	energyInstantsMap[receiverNode];
-	energyInstantsMap[senderNode].currentTxPower = senderTxBegin;
-	energyInstantsMap[receiverNode].currentTxPower = senderTxBegin;
-	energyInstantsMap[senderNode].currentEnergy = 
-		nodeComponents[senderNode].energySource->GetRemainingEnergy();
-	energyInstantsMap[receiverNode].currentEnergy = 
-		nodeComponents[receiverNode].energySource->GetRemainingEnergy();
-	energyInstantsMap[senderNode].currentPackets = 0;
-	energyInstantsMap[receiverNode].currentPackets = 0;
-	energyInstantsMap[senderNode].currentBytes = 0;
-	energyInstantsMap[receiverNode].currentBytes = 0;
-	energyInstantsMap[senderNode].currentEnergyConsumption = 0;
-	energyInstantsMap[receiverNode].currentEnergyConsumption = 0;
-	energyInstantsMap[senderNode].totalEnergyConsumption = 0;
-	energyInstantsMap[receiverNode].totalEnergyConsumption = 0;
-	energyInstantsMap[senderNode].currentTxDuration = 0;
-	energyInstantsMap[receiverNode].currentTxDuration = 0;
-	energyInstantsMap[senderNode].currentRxDuration = 0;
-	energyInstantsMap[receiverNode].currentRxDuration = 0;
-	energyInstantsMap[senderNode].timeNow = 0;
-	energyInstantsMap[receiverNode].timeNow = 0;
-	
-
 	// *Configure FlowMonitor*
 	Ptr<FlowMonitor> flowMonitor;
 	FlowMonitorHelper flowHelper;
 	flowMonitor = flowHelper.InstallAll();
 	FlowMonitorHelper *helperPtr = &flowHelper;
-
-	if (sinkapprun)
+#pragma region configuration
+	for (int i = 0; i < senderNodes.GetN(); i++)
 	{
-		ApplicationContainer sinkApp = packetSinkHelper.Install(apNodes.Get(0));
-		ApplicationContainer senderApp = onOff.Install(staNodes.Get(0));
-		sinkApp.Start(beginTime);
-		sinkApp.Stop(endTime);
-		senderApp.Start(beginTime + Seconds(1.0));
-		senderApp.Stop(endTime);
-		Simulator::Schedule(beginTime, &LogFullChannelCapacity, flowMonitor,
-			helperPtr, sinkappport, senderNode, receiverNode);
+		Ptr<Node> senderNode = senderNodes.Get(i);
+		if (sinkapprun)
+		{
+			uint32_t index = GetNodeWifiNetDevice(senderNode)->GetIfIndex();
+			OnOffHelper onOff("ns3::UdpSocketFactory",
+							  GetNodeIpv4Address(senderNode, index));
+			onOff.SetAttribute("DataRate", StringValue("1Gbps"));
+			onOff.SetAttribute("PacketSize", UintegerValue(onoffAppPacketSize));
+			onOff.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
+			onOff.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+			ApplicationContainer senderApp = onOff.Install(senderNode);
+			senderApp.Start(beginTime + Seconds(1.0));
+			senderApp.Stop(endTime);
+		}
+		if (udpapprun)
+		{
+			UdpClientHelper client(GetNodeInetSocketAddr(senderNode, udpAppPort));
 
-	}
-	if (adaptive)
-	{
-		Simulator::Schedule(beginTime, &AdjustSignal, senderNode, receiverNode);
-		Simulator::Schedule(beginTime, &AdjustSignal, receiverNode, senderNode);
-	}
-	if (udpapprun)
-	{
-		ApplicationContainer clientApps = client.Install(senderNode);
-		ApplicationContainer serverApps = server.Install(receiverNode);	
-		clientApps.Start(beginTime + Seconds(1.0));
-		clientApps.Stop(endTime);
-		serverApps.Start(beginTime);
-		serverApps.Stop(endTime);
-		Simulator::Schedule(beginTime, &LogFullChannelCapacity, flowMonitor,
-			helperPtr, udpappport, senderNode, receiverNode);
-	}
-	Simulator::Schedule(beginTime, &ControlTxPowers, senderNode);
-	Simulator::Schedule(beginTime, &ControlTxPowers, receiverNode);
-	Simulator::Schedule(Seconds(0.0), &LogMain);
-	Simulator::Schedule(beginTime, &LogBandwidthValues, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogRxTxSignalPower, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogPathLoss, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogMovement, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogRxTxGain, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogRxTxPackets, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogSNRValues, senderNode, receiverNode);
-	Simulator::Schedule(beginTime, &LogEnergy, senderNode);
-	Simulator::Schedule(beginTime, &LogEnergy, receiverNode);
-	Simulator::Schedule(beginTime, &LogFullChannelCapacity, flowMonitor,
-						helperPtr, udpsocketport, senderNode, receiverNode);
-						
-	// Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, senderNode);
-	// Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, receiverNode);
+			Time interPacketInterval; // Interval between packets (10,000 packets per second)
+			// calculate interPacketInterval based on the data rate
+			interPacketInterval = Seconds((double)udpAppPacketSize * 8 / udpAppDataRate.GetBitRate());
+			client.SetAttribute("MaxPackets", UintegerValue(udpAppMaxPacketCount));
+			client.SetAttribute("Interval", TimeValue(interPacketInterval));
+			client.SetAttribute("PacketSize", UintegerValue(udpAppPacketSize));
 
-	// Simulation Adjustments
-	Simulator::Schedule(beginTime, &ControlEnergy, &apEnergySourceContainer);
-	Simulator::Schedule(beginTime, &ControlEnergy, &staEnergySourceContainer);
-	// Simulation Nettwork Adjustments
-	Simulator::Schedule(beginTime, &SendPacket, senderSocket, senderNode,
-						receiverNode, receiverAddress);
+			ApplicationContainer clientApps = client.Install(senderNode);
+			clientApps.Start(beginTime + Seconds(1.0));
+			clientApps.Stop(endTime);
+		}
+	}
+	for (int j = 0; j < receiverNodes.GetN(); j++)
+	{
+		Ptr<Node> receiverNode = receiverNodes.Get(j);
+		if (sinkapprun)
+		{
+			Address sinkLocalAddress = GetNodeMacAddress(receiverNode);
+			PacketSinkHelper packetSinkHelper("ns3::UdpSocketFactory", sinkLocalAddress);
+			ApplicationContainer sinkApp = packetSinkHelper.Install(receiverNode);
+			sinkApp.Start(beginTime);
+			sinkApp.Stop(endTime);
+		}
+		if (udpapprun)
+		{
+			UdpServerHelper server(udpAppPort);
+			ApplicationContainer serverApps = server.Install(receiverNode);
+			serverApps.Start(beginTime);
+			serverApps.Stop(endTime);
+		}
+	}
+#pragma endregion configuration
+#pragma region ScheduleLoops
+	for (int i = 0; i < senderNodes.GetN(); i++)
+	{
+		Ptr<Node> senderNode = senderNodes.Get(i);
+		Ptr<SenderHandler> senderHandler = senderHandlers[senderNode];
+
+		Simulator::Schedule(beginTime, &ControlTxPowers, senderNode);
+		Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, senderNode);
+		Simulator::Schedule(beginTime, &LogEnergy, senderNode);
+
+		for (int j = 0; j < receiverNodes.GetN(); j++)
+		{
+			Ptr<Node> receiverNode = receiverNodes.Get(j);
+			Ptr<ReceiverHandler> receiverHandler = receiverHandlers[receiverNode];
+			if (adaptive)
+			{
+				Simulator::Schedule(beginTime, &AdjustSignal, senderNode, receiverNode);
+				Simulator::Schedule(beginTime, &AdjustSignal, receiverNode, senderNode);
+			}
+			// Simulation Adjustments
+			Simulator::Schedule(beginTime, &ControlEnergy, &apEnergySourceContainer);
+			Simulator::Schedule(beginTime, &ControlEnergy, &staEnergySourceContainer);
+			Simulator::Schedule(beginTime, &SendAndReceive, senderHandler, receiverHandler);
+			Simulator::Schedule(beginTime, &LogFlowMonitor, flowMonitor,
+								helperPtr, sinkAppPort, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogFlowMonitor, flowMonitor,
+								helperPtr, udpsocketport, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogFlowMonitor, flowMonitor,
+								helperPtr, udpAppPort, senderNode, receiverNode);
+
+			Simulator::Schedule(Seconds(0.0), &LogMain, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogBandwidthValues, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogRxTxSignalPower, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogPathLoss, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogMovement, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogRxTxGain, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogRxTxPackets, senderNode, receiverNode);
+			Simulator::Schedule(beginTime, &LogSNRValues, senderNode, receiverNode);
+		}
+	}
+	for (int i = 0; i < receiverNodes.GetN(); i++)
+	{
+		Ptr<Node> receiverNode = receiverNodes.Get(i);
+		Simulator::Schedule(beginTime, &LogEnergy, receiverNode);
+		Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, receiverNode);
+		Simulator::Schedule(beginTime, &ControlTxPowers, receiverNode);
+	}
 	// Run simulation
 	Simulator::Stop(endTime);
 	Simulator::Run();
 	Simulator::Destroy();
+#pragma endregion ScheduleLoops
 	// Close results files
 	CloseLogs();
 

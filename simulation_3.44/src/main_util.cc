@@ -112,76 +112,56 @@ ReadEnvFile(const std::string &filePath)
 	file.close();
 	return envMap;
 }
-
 void ForceEnergyDepletion(Ptr<Node> node)
 {
 	Ptr<WifiRadioEnergyModel> energyModel =
 		nodeComponents[node].wifiRadioEnergyModel;
 	Simulator::Schedule(interval, &ForceEnergyDepletion, node);
 }
-void RecvCallback(Ptr<Socket> socket)
+void ReceiverHandler::RecvCallback(Ptr<Socket> socket)
 {
-	Ptr<Node> rNode = receiverNode;
+	// Initialize if not exists (should be done during setup)
+	Ptr<Packet> packet;
+	Address from;
+	this->packet = socket->RecvFrom(from);
+	// Debug output
+	InetSocketAddress addr = InetSocketAddress::ConvertFrom(from);
+	NS_LOG_UNCOND("[" << Simulator::Now().GetSeconds() << "s] Node " << this->rNode->GetId() << " received" << packet->GetSize() << " bytes from "
+					  << addr.GetIpv4() << ":" << addr.GetPort());
+	// Update counters
+	// PHY-level verification
 	uint32_t nodeId = rNode->GetId();
 	Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(rNode);
 	Ptr<WifiRadioEnergyModel> energyModel =
-		nodeComponents[rNode].wifiRadioEnergyModel;
-
-	// Initialize if not exists (should be done during setup)
-	if (rxPacketsMap.find(rNode) == rxPacketsMap.end())
-	{
-		rxPacketsMap[rNode] = {0, 0.0};
-	}
+		this->nodeComponents.wifiRadioEnergyModel;
 	auto &rxMap = rxPacketsMap[rNode];
-
-	Address from;
-	Ptr<Packet> packet;
 	double currentTime = Simulator::Now().GetSeconds();
-	double rxPowerPhy = GetRxSignalPower(senderNode, rNode);
-	while ((packet = socket->RecvFrom(from)))
-	{
-		// Debug output
-		InetSocketAddress addr = InetSocketAddress::ConvertFrom(from);
-		NS_LOG_UNCOND("[" << Simulator::Now().GetSeconds() << "s] Node " << nodeId
-						  << " received " << packet->GetSize() << " bytes from "
-						  << addr.GetIpv4() << ":" << addr.GetPort());
-
-		// Update counters
-		double rxEnergyConsumed =
-			CalculateRxEnergy(rNode, senderNode, packet->GetSize());
-		double rxPowerConsumed = CalculateRxAntennaPower(rNode);
-		DataRate rxDataRate = CalculateRxDataRateShannon(senderNode, rNode);
-		uint64_t bits = packet->GetSize() * 8;
-		double rxBitrate = rxDataRate.GetBitRate();
-		double rxDuration = (rxBitrate > 0) ? (double(bits) / rxBitrate) : 0.001;
-		previousRxDataInstant[rNode] = rxInstantMap[rNode];
-		rxMap.first++;
-		rxMap.second = rxEnergyConsumed;
-		rxInstantMap[rNode] = {
-			.timestamp = currentTime,
-			.packets = 1, // Just this packet
-			.bytes = bits / 8,
-			.power = rxPowerConsumed,
-			.duration = rxDuration,
-			.energy = rxEnergyConsumed,
-		};
-		// PHY-level verification
-	}
-	if (wifiDev)
-	{
-		NS_LOG_UNCOND("Last RSSI: " << rxPowerPhy << " dBm");
-	}
+	double rxPowerPhy = GetRSS(sNode, rNode);
+	double rxPowerConsumed = CalculateRxAntennaPower(rNode);
+	DataRate rxDataRate = CalculateRxDataRateShannon(sNode, rNode);
+	uint64_t bits = packet->GetSize() * 8;
+	double rxBitrate = rxDataRate.GetBitRate();
+	double rxDuration = (rxBitrate > 0) ? (double(bits) / rxBitrate) : 0.001;
+	double rxEnergyConsumed = CalculateRxEnergy(sNode, rNode, this->packet->GetSize());
+	this->previousRxInstants = this->currentRxInstant;
+	this->currentRxInstant = {
+		.timestamp = currentTime,
+		.packets = 1, // Just this packet
+		.bytes = bits / 8,
+		.power = rxPowerConsumed,
+		.duration = rxDuration,
+		.energy = rxEnergyConsumed,
+	};
 }
-void SendPacket(Ptr<Socket> socket, Ptr<Node> sNode, Ptr<Node> rNode,
-				InetSocketAddress addr)
+void SenderHandler::SendPacket(Ptr<Node> rNode)
 {
 	// Get current transmission parameters
 	Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(sNode);
 	Ptr<WifiRadioEnergyModel> energyModel =
-		nodeComponents[sNode].wifiRadioEnergyModel;
+		this->nodeComponents.wifiRadioEnergyModel;
 	double currentTime = Simulator::Now().GetSeconds();
-	Ptr<Packet> packet = Create<Packet>(payloadSize);
-	uint64_t bytesSent = socket->SendTo(packet, 0, addr);
+	Ptr<Packet> packet = Create<Packet>(simple_udp_app_payload_size);
+	uint64_t bytesSent = socket->SendTo(packet, 0, sendAddress);
 	auto &txMap = txPacketsMap[sNode];
 	// Perform transmission
 	DataRate dataRateRx = CalculateRxDataRateShannon(sNode, rNode);
@@ -189,12 +169,10 @@ void SendPacket(Ptr<Socket> socket, Ptr<Node> sNode, Ptr<Node> rNode,
 	uint64_t bitsSent = bytesSent * 8;
 	double txBitrate = dataRateTx.GetBitRate();
 	double txDuration = (txBitrate > 0) ? (double(bitsSent) / txBitrate) : 0.001;
-	double txEnergy = CalculateTxEnergy(sNode, receiverNode, bytesSent);
+	double txEnergy = CalculateTxEnergy(sNode, rNode, bytesSent);
 	double txPower = CalculateTxAntennaPower(sNode);
-	previousTxDataInstant[sNode] = txInstantMap[sNode];
-	txMap.first += 1;
-	txMap.second += txEnergy;
-	txInstantMap[sNode] = {
+	this->previousTxInstants = this->currentTxInstant;
+	this->currentTxInstant = {
 		.timestamp = currentTime,
 		.packets = 1, // Just this transmission
 		.bytes = bytesSent,
@@ -202,13 +180,13 @@ void SendPacket(Ptr<Socket> socket, Ptr<Node> sNode, Ptr<Node> rNode,
 		.duration = txDuration,
 		.energy = txEnergy,
 	};
+	this->packet = packet;
 	if (bytesSent > 0)
 	{
 		// Account for energy consumption
 		UpdateEnergyAccounting(sNode, txDuration);
 		// Return to idle state
 	}
-	Simulator::Schedule(interval, &SendPacket, socket, sNode, rNode, addr);
 }
 void ControlMovement::FlipDirection(Ptr<Node> flipNode, Ptr<Node> referenceNode)
 {
@@ -225,7 +203,7 @@ void ControlMovement::FlipDirection(Ptr<Node> flipNode, Ptr<Node> referenceNode)
 	}
 
 	auto x = mobs->GetDistanceFrom(mobr);
-	Ptr<ConstantVelocityMobilityModel> mob = DynamicCast<ConstantVelocityMobilityModel>( flipNode->GetObject<MobilityModel>());
+	Ptr<ConstantVelocityMobilityModel> mob = DynamicCast<ConstantVelocityMobilityModel>(flipNode->GetObject<MobilityModel>());
 	if (mob != nullptr)
 	{
 		// Reverse direction
@@ -316,8 +294,8 @@ void AdjustSignal(Ptr<Node> sNode, Ptr<Node> rNode)
 	Ptr<WifiRadioEnergyModel> rem = (nodeComponents[rNode].wifiRadioEnergyModel);
 	Ptr<WifiPhy> sPhy = swDev->GetPhy();
 	Ptr<WifiPhy> rPhy = rwDev->GetPhy();
-	double rRxPwr = GetRxSignalPower(sNode, rNode);
-	double sRxPwr = GetRxSignalPower(rNode, sNode);
+	double rRxPwr = GetRSS(sNode, rNode);
+	double sRxPwr = GetRSS(rNode, sNode);
 	double rTxPwr = GetTxSignalPower(sNode);
 	double sTxPwr = GetTxSignalPower(rNode);
 	DataRate txBw = CalculateTxDataRateShannon(sNode, rNode);
@@ -335,7 +313,9 @@ void AdjustSignal(Ptr<Node> sNode, Ptr<Node> rNode)
 		 */
 		if (rRxPwr >= maxThresholdPower)
 		{
-			NS_LOG_INFO("Reached Max Recv Threashold Power");
+			NS_LOG_INFO(
+				"Reached Max Recv Threashold Power"
+				"rRxPwr: ");
 		}
 		else
 		{
@@ -398,36 +378,57 @@ void EnergyTraceCallback(std::string context, double oldVal, double newVal)
 		Ptr<Node> node = NodeList::GetNode(nodeId);
 		// Log energy values
 		LogEnergy(node);
-		LogToFile(std::format("energy_trace{}.csv", nodeId),
-				  BuildLogMessage(Simulator::Now(), ",", oldVal, ",", newVal),
-				  "Time,OldValue,NewValue");
+		LogToFile(
+			getLogPath(FileLogType::EnergyTrace, nodeId),
+			BuildLogMessage(Simulator::Now(), ",", oldVal, ",", newVal),
+			"Time,OldValue,NewValue");
 	}
 }
 
-void LogMain()
+void LogMain(Ptr<Node> sNode, Ptr<Node> rNode)
 {
+	Ptr<Packet> packet = handlers[sNode]->packet;
 
-	NS_LOG_INFO("========================");
-	NS_LOG_INFO(std::format("Time: {}, Distance: {}", Simulator::Now().GetSeconds(), GetNodeMobilityModel(receiverNode)->GetDistanceFrom(GetNodeMobilityModel(senderNode))));
-	NS_LOG_INFO(std::format("Sender Tx Gain: {} dBm", GetNodeWifiNetDevice(senderNode)->GetPhy()->GetTxGain()));
-	NS_LOG_INFO(std::format("Sender Tx Power: {} dBm", GetTxSignalPower(senderNode)));
-	NS_LOG_INFO(std::format("Sender Tx Bandwidth: {} Mbps", CalculateTxDataRateShannon(senderNode, receiverNode).GetBitRate() / 1e6));
-	NS_LOG_INFO(std::format("Sender Tx Energy: {} J", CalculateTxEnergy(senderNode, receiverNode, payloadSize)));
-	NS_LOG_INFO(std::format("Sender Rx Gain: {} dBm", GetNodeWifiNetDevice(senderNode)->GetPhy()->GetRxGain()));
-	NS_LOG_INFO(std::format("Sender Rx Power: {} dBm", GetRxSignalPower(senderNode, receiverNode)));
-	NS_LOG_INFO(std::format("Sender Rx Bandwidth: {} Mbps", CalculateRxDataRateShannon(senderNode, receiverNode).GetBitRate() / 1e6));
-	NS_LOG_INFO(std::format("Sender Rx Energy: {} J", CalculateRxEnergy(senderNode, receiverNode, payloadSize)));
+	double time = Simulator::Now().GetSeconds();
+	double distance = GetNodeMobilityModel(rNode)->GetDistanceFrom(GetNodeMobilityModel(sNode));
+	uint32_t payloadSize = 0;
+	if(packet != nullptr){
+	 payloadSize = packet->GetSize();
+	}
 
-	NS_LOG_INFO(std::format("Receiver Tx Gain: {} dBm", GetNodeWifiNetDevice(receiverNode)->GetPhy()->GetTxGain()));
-	NS_LOG_INFO(std::format("Receiver Tx Power: {} dBm", GetTxSignalPower(receiverNode)));
-	NS_LOG_INFO(std::format("Receiver Tx Bandwidth: {} Mbps", CalculateTxDataRateShannon(receiverNode, senderNode).GetBitRate() / 1e6));
-	NS_LOG_INFO(std::format("Receiver Tx Energy: {} J", CalculateTxEnergy(receiverNode, senderNode, payloadSize)));
-	NS_LOG_INFO(std::format("Receiver Rx Gain: {} dBm", GetNodeWifiNetDevice(receiverNode)->GetPhy()->GetRxGain()));
-	NS_LOG_INFO(std::format("Receiver Rx Power: {} dBm", GetRxSignalPower(receiverNode, senderNode)));
-	NS_LOG_INFO(std::format("Receiver Rx Bandwidth: {} Mbps", CalculateRxDataRateShannon(receiverNode, senderNode).GetBitRate() / 1e6));
-	NS_LOG_INFO(std::format("Receiver Rx Energy: {} J", CalculateRxEnergy(receiverNode, senderNode, payloadSize)));
-	NS_LOG_INFO("========================");
-	Simulator::Schedule(interval, &LogMain);
+	auto sPhy = GetNodeWifiNetDevice(sNode)->GetPhy();
+	auto rPhy = GetNodeWifiNetDevice(rNode)->GetPhy();
+
+	std::ostringstream oss;
+	oss << "\n========================\n"
+		<< "Time: " << time << ", Distance: " << distance << "\n"
+		<< "Sender Node: " << sNode->GetId() << ", Receiver Node: " << rNode->GetId() << "\n"
+		<< "Payload Size: " << payloadSize << "\n"
+
+		<< "Sender Tx Gain: " << sPhy->GetTxGain() << " dBm\n"
+		<< "Sender Tx Power: " << GetTxSignalPower(sNode) << " dBm\n"
+		<< "Sender Tx Bandwidth: " << CalculateTxDataRateShannon(sNode, rNode).GetBitRate() / 1e6 << " Mbps\n"
+		<< "Sender Tx Energy: " << CalculateTxEnergy(sNode, rNode, payloadSize) << " J\n"
+
+		<< "Sender Rx Gain: " << sPhy->GetRxGain() << " dBm\n"
+		<< "Sender Rx Power: " << GetRSS(sNode, rNode) << " dBm\n"
+		<< "Sender Rx Bandwidth: " << CalculateRxDataRateShannon(sNode, rNode).GetBitRate() / 1e6 << " Mbps\n"
+		<< "Sender Rx Energy: " << CalculateRxEnergy(sNode, rNode, payloadSize) << " J\n"
+
+		<< "Receiver Tx Gain: " << rPhy->GetTxGain() << " dBm\n"
+		<< "Receiver Tx Power: " << GetTxSignalPower(rNode) << " dBm\n"
+		<< "Receiver Tx Bandwidth: " << CalculateTxDataRateShannon(rNode, sNode).GetBitRate() / 1e6 << " Mbps\n"
+		<< "Receiver Tx Energy: " << CalculateTxEnergy(rNode, sNode, payloadSize) << " J\n"
+
+		<< "Receiver Rx Gain: " << rPhy->GetRxGain() << " dBm\n"
+		<< "Receiver Rx Power: " << GetRSS(rNode, sNode) << " dBm\n"
+		<< "Receiver Rx Bandwidth: " << CalculateRxDataRateShannon(rNode, sNode).GetBitRate() / 1e6 << " Mbps\n"
+		<< "Receiver Rx Energy: " << CalculateRxEnergy(rNode, sNode, payloadSize) << " J\n"
+		<< "========================\n";
+
+	LogToFile(getLogPath(FileLogType::Main, sNode->GetId()), oss.str());
+
+	Simulator::Schedule(interval, &LogMain, sNode, rNode);
 }
 
 void LogWifiNetDeviceProperties(Ptr<Node> node)
@@ -440,55 +441,45 @@ void LogWifiNetDeviceProperties(Ptr<Node> node)
 	WifiMode mode = mgr->GetDefaultMode();
 	WifiMode mcsmode = mgr->GetDefaultMcs();
 	WifiPhyBand phyband = phy->GetPhyBand();
-	WifiSpectrumBandInfo bandinfo = phy->GetBand(phyband);
 	Mac48Address addr = mgr->GetMac()->GetAddress();
 	WifiRemoteStationInfo info = mgr->GetInfo(addr);
-	NS_LOG_INFO("WifiNetDevice Properties:");
-	NS_LOG_INFO("Antenna Count: "<< static_cast<int>( mgr->GetNumberOfAntennas()));
-	NS_LOG_INFO("Standard: " << phy->GetStandard());
-	NS_LOG_INFO("Default Mode: " << mgr->GetDefaultMode());
-	NS_LOG_INFO("Default MCS: " << mgr->GetDefaultMcs());
-	NS_LOG_INFO("Address: " << addr);
-	NS_LOG_INFO("Ht Support: " << mgr->GetHtSupported());
-	NS_LOG_INFO("Vht Support: " << mgr->GetVhtSupported());
-	NS_LOG_INFO("Frame Error Rate: " << info.GetFrameErrorRate());
-	NS_LOG_INFO("Code Rate: " << mode.GetCodeRate());
-	NS_LOG_INFO("non-HT Data Rate: " << mode.GetDataRate(phy->GetChannelWidth()));
-	NS_LOG_INFO("non-HT Physical Bit Rate: " << mode.GetPhyRate(phy->GetChannelWidth()));
-	NS_LOG_INFO("Guard Intreval: " << mgr->GetGuardInterval());
-	NS_LOG_INFO("Spaital Streams: " << static_cast<int>( mgr->GetMaxNumberOfTransmitStreams()));
-	NS_LOG_INFO("MCS: " << mcsmode.GetUniqueName());
-	// NS_LOG_INFO("Mcs Value: " << mode.GetMcsValue());
-	NS_LOG_INFO("Mcs Class: " << mode.GetModulationClass());
-	NS_LOG_INFO("Primary Channel Number: "<< static_cast<int>( phy->GetPrimaryChannelNumber(phy->GetChannelWidth())));
-	NS_LOG_INFO("Frequency: " << phy->GetFrequency());
-	NS_LOG_INFO("Channel Frequency: " << phy->GetFrequency());
-	NS_LOG_INFO("Channel Number: " << phy->GetChannelNumber());
-	NS_LOG_INFO("Channel Width: " << phy->GetChannelWidth());
-	NS_LOG_INFO("Channel Type: " << phy->GetBand(phy->GetChannelWidth(), phy->GetChannelNumber()));
-	NS_LOG_INFO("Supported Modes:");
-	for (auto &i : phy->GetModeList())
-	{
-		NS_LOG_INFO(i);
-	}
-	NS_LOG_INFO("Supported MCS:");
-	for(auto& i : phy->GetMcsList())
-	{
-		NS_LOG_INFO(i);
-	}
-	NS_LOG_INFO("Supported Basic MCSs: ");
-	for(int i = 0; i <  mgr->GetNBasicMcs(); i++){
-		NS_LOG_INFO(mgr->GetBasicMcs(i));
-	}
-	NS_LOG_INFO("Supported Basic Modes: ");
-	for(int i = 0; i < mgr->GetNBasicModes(); i++){
-		NS_LOG_INFO(mgr->GetBasicMode(i));
-	}
-	NS_LOG_INFO("Supported Bandwidths:");
-	LogToFile("wifi_net_device_properties.csv",
-			  BuildLogMessage(Simulator::Now().GetSeconds(), ",", phy->GetStandard(), ",", mode.GetUniqueName(), ",", addr, ",", phy->GetFrequency(), ",", phy->GetChannelWidth()),
-			  "Time,Standard,Mode,Address,Frequency,ChannelWidth");
+	std::ostringstream oss;
 
-	return;
-	;
+	oss << "\n"
+		<< "========================" << "\n"
+		<< "WifiNetDevice Properties" << "\n"
+		<< "Time: " << Simulator::Now().GetSeconds() << "\n"
+		<< "Node ID: " << node->GetId() << "\n"
+		<< "MAC Address: " << mac->GetAddress() << "\n"
+		<< "Antenna Count: " << phy->GetNumberOfAntennas() << "\n"
+		<< "Standard: " << phy->GetStandard() << "\n"
+		<< "Default Mode: " << mgr->GetDefaultMode() << "\n"
+		<< "Default MCS: " << mgr->GetDefaultMcs() << "\n"
+		<< "HT Support: " << std::boolalpha << mac->GetHtSupported(addr) << "\n"
+		<< "VHT Support: " << std::boolalpha << mac->GetVhtSupported(addr) << "\n"
+		<< "EHT Support: " << std::boolalpha << mac->GetEhtSupported(addr) << "\n"
+		<< "Frame Error Rate: " << info.GetFrameErrorRate() << "\n"
+		<< "Code Rate: " << mode.GetCodeRate() << "\n"
+		<< "non-HT Data Rate: " << mode.GetDataRate(phy->GetChannelWidth()) << " Mbps" << "\n"
+		<< "non-HT Physical Bit Rate: " << mode.GetPhyRate(phy->GetChannelWidth()) << " Mbps" << "\n"
+		<< "Guard Interval: " << mgr->GetGuardInterval().GetNanoSeconds() << " ns" << "\n"
+		<< "Spatial Streams: " << static_cast<int>(mgr->GetMaxNumberOfTransmitStreams()) << "\n"
+		<< "MCS Class: " << mcsmode.GetUniqueName() << "\n"
+		<< "MCS Name: " << mode.GetModulationClass() << "\n"
+		<< "Primary Channel Number: " << static_cast<int>(phy->GetPrimaryChannelNumber(phy->GetChannelWidth())) << "\n"
+		<< "Frequency: " << phy->GetFrequency() << " Hz\n"
+		<< "Channel Number: " << phy->GetChannelNumber() << "\n"
+		<< "Channel Width: " << phy->GetChannelWidth() << " MHz\n"
+		<< "Channel Type: " << phy->GetBand(phy->GetChannelWidth(), phy->GetChannelNumber()) << "\n"
+		<< "\n"
+		<< "========================" << "\n";
+
+	LogToFile(getLogPath(FileLogType::Device, node->GetId()), oss.str());
+	Simulator::Schedule(interval, &LogWifiNetDeviceProperties, node);
+}
+
+void SendAndReceive(Ptr<SenderHandler> senderHandler, Ptr<ReceiverHandler> receiverHandler)
+{
+	senderHandler->SendPacket(senderHandler->rNode);
+	Simulator::Schedule(interval, &SendAndReceive, senderHandler, receiverHandler);
 }

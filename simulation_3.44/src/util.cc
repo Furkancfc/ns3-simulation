@@ -6,49 +6,78 @@ using namespace ns3;
 using namespace ns3::energy;
 NS_LOG_COMPONENT_DEFINE("Util");
 
-Ptr<MobilityModel> GetNodeMobilityModel(ns3::Ptr<ns3::Node> node) {
+Ptr<MobilityModel> GetNodeMobilityModel(ns3::Ptr<ns3::Node> node)
+{
   return node->GetObject<MobilityModel>();
 }
-Ptr<NetDevice> GetNetDevice(Ptr<Node> node) {
-  return DynamicCast<WifiNetDevice>(node->GetDevice(0));
+Ptr<WifiNetDevice> GetNodeWifiNetDevice(Ptr<Node> node)
+{
+  for (uint32_t i = 0; i < node->GetNDevices(); ++i)
+  {
+    Ptr<WifiNetDevice> wifi = DynamicCast<WifiNetDevice>(node->GetDevice(i));
+    if (wifi)
+      return wifi;
+  }
+  return nullptr; // or throw an error
 }
-Ptr<WifiNetDevice> GetNodeWifiNetDevice(Ptr<Node> node) {
-  return DynamicCast<WifiNetDevice>(node->GetDevice(1));
+Ipv4Address GetNodeIpv4Address(Ptr<Node> node, uint32_t interfaceIndex)
+{
+  Ptr<Ipv4> ipv4 = node->GetObject<Ipv4>();
+  return ipv4->GetAddress(interfaceIndex, 0).GetLocal(); // 0: first address on interface
 }
-Ptr<energy::BasicEnergySource> GetNodeEnergySource(Ptr<Node> node) {
+
+InetSocketAddress GetNodeInetSocketAddr(Ptr<Node> node, uint16_t port)
+{
+  uint32_t index = GetNodeWifiNetDevice(node)->GetIfIndex();
+  Ipv4Address ip = GetNodeIpv4Address(node,index);
+  return InetSocketAddress(ip, port);
+}
+
+Address GetNodeMacAddress(Ptr<Node> node)
+{
+  return GetNodeWifiNetDevice(node)->GetAddress();
+}
+Ptr<energy::BasicEnergySource> GetNodeEnergySource(Ptr<Node> node)
+{
   Ptr<EnergySourceContainer> energySources =
       node->GetObject<EnergySourceContainer>();
-  if (energySources && energySources->GetN() > 0) {
+  if (energySources && energySources->GetN() > 0)
+  {
     return DynamicCast<BasicEnergySource>(energySources->Get(0));
   }
   return nullptr;
 }
-double GetDistance(Ptr<Node> a, Ptr<Node> b) {
+double GetDistance(Ptr<Node> a, Ptr<Node> b)
+{
   Ptr<MobilityModel> moba = GetNodeMobilityModel(a);
   Ptr<MobilityModel> mobb = GetNodeMobilityModel(b);
   return moba->GetDistanceFrom(mobb);
 }
-Ptr<Object> GetAttribute(std::string attrName, Ptr<Object> object) {
+Ptr<Object> GetAttribute(std::string attrName, Ptr<Object> object)
+{
   PointerValue ptrVal;
   object->GetAttribute(attrName, ptrVal);
   return ptrVal;
 }
 // Get Actual Antenna Tx power
-double GetTxSignalPower(Ptr<Node> sNode) {
+double GetTxSignalPower(Ptr<Node> sNode)
+{
   Ptr<WifiNetDevice> wifiDevice = GetNodeWifiNetDevice(sNode);
   Ptr<WifiPhy> phy = wifiDevice->GetPhy();
   return phy->GetTxPowerEnd();
 }
 // Calculate Actual Reception Rx power
-double GetRxSignalPower(double txPower, Ptr<MobilityModel> senderMobility,
-                        Ptr<MobilityModel> receiverMobility) {
+double GetRSS(double txPower, Ptr<MobilityModel> senderMobility,
+              Ptr<MobilityModel> receiverMobility)
+{
   Ptr<PropagationLossModel> lm =
       DynamicCast<PropagationLossModel>(lossModel.Get<PropagationLossModel>());
   return lm->CalcRxPower(DoubleValue(txPower).Get(), senderMobility,
                          receiverMobility);
 }
 // Calculate Actual Reception Rx power
-double GetRxSignalPower(Ptr<Node> sender, Ptr<Node> receiver) {
+double GetRSS(Ptr<Node> sender, Ptr<Node> receiver)
+{
   Ptr<PropagationLossModel> lm =
       DynamicCast<PropagationLossModel>(lossModel.Get<PropagationLossModel>());
   Ptr<MobilityModel> smob = GetNodeMobilityModel(sender);
@@ -57,28 +86,33 @@ double GetRxSignalPower(Ptr<Node> sender, Ptr<Node> receiver) {
   return lm->CalcRxPower(DoubleValue(txPower).Get(), smob, rmob);
 }
 // Calculate Tx Antenna Supply Power
-double CalculateTxAntennaPower(Ptr<Node> node) {
+double CalculateTxAntennaPower(Ptr<Node> node)
+{
   Ptr<WifiNetDevice> dev = GetNodeWifiNetDevice(node);
-  if (!dev) {
+  if (!dev)
+  {
     NS_LOG_ERROR("No WifiNetDevice found");
     return 0.0;
   }
 
   auto energyModelIt = nodeComponents[node].wifiRadioEnergyModel;
-  if (!energyModelIt) {
+  if (!energyModelIt)
+  {
     NS_LOG_ERROR("No energy model found");
     return 0.0;
   }
 
   auto energySrcIt = nodeComponents[node].energySource;
-  if (!energySrcIt) {
+  if (!energySrcIt)
+  {
     NS_LOG_ERROR("No energy source found");
     return 0.0;
   }
 
   Ptr<BasicEnergySource> source =
       DynamicCast<BasicEnergySource>(energySrcIt);
-  if (!source) {
+  if (!source)
+  {
     NS_LOG_ERROR("Invalid energy source type");
     return 0.0;
   }
@@ -86,37 +120,43 @@ double CalculateTxAntennaPower(Ptr<Node> node) {
   return energyModelIt->GetTxCurrentA() * source->GetSupplyVoltage();
 }
 // Calculate Antenna Rx Supply Power
-double CalculateRxAntennaPower(Ptr<Node> node) {
+double CalculateRxAntennaPower(Ptr<Node> node)
+{
   // Validate input node
-  if (!node) {
+  if (!node)
+  {
     NS_LOG_ERROR("Null node pointer in CalculateRxAntennaPower");
     return 0.0;
   }
 
   // Get network device with validation
   Ptr<WifiNetDevice> dev = GetNodeWifiNetDevice(node);
-  if (!dev) {
+  if (!dev)
+  {
     NS_LOG_ERROR("No WifiNetDevice found for node " << node->GetId());
     return 0.0;
   }
 
   // Get energy model with validation
   auto energyModelIt = nodeComponents[node].wifiRadioEnergyModel;
-  if (!energyModelIt) {
+  if (!energyModelIt)
+  {
     NS_LOG_ERROR("No energy model found for device on node " << node->GetId());
     return 0.0;
   }
 
   // Get energy source with validation
   auto energySourceIt = nodeComponents[node].energySource;
-  if (!energySourceIt) {
+  if (!energySourceIt)
+  {
     NS_LOG_ERROR("No energy source found for node " << node->GetId());
     return 0.0;
   }
 
   Ptr<BasicEnergySource> source =
       DynamicCast<BasicEnergySource>(energySourceIt);
-  if (!source) {
+  if (!source)
+  {
     NS_LOG_ERROR("Invalid energy source type for node " << node->GetId());
     return 0.0;
   }
@@ -130,16 +170,19 @@ double CalculateRxAntennaPower(Ptr<Node> node) {
   return rxPower;
 }
 // Calculate Consumed Tx Energy from Antenna Supply with Antenna Power
-double CalculateTxEnergy(Ptr<Node> sNode, Ptr<Node> rNode, uint32_t bytes) {
+double CalculateTxEnergy(Ptr<Node> sNode, Ptr<Node> rNode, uint32_t bytes)
+{
   double power = CalculateTxAntennaPower(sNode);
-  if (power <= 0) {
+  if (power <= 0)
+  {
     NS_LOG_WARN("Invalid TX power value");
     return 0.0;
   }
 
   DataRate dataRate = CalculateTxDataRateShannon(sNode, rNode);
   double bitRate = dataRate.GetBitRate();
-  if (bitRate <= 0) {
+  if (bitRate <= 0)
+  {
     NS_LOG_WARN("Invalid data rate");
     return 0.0;
   }
@@ -151,16 +194,19 @@ double CalculateTxEnergy(Ptr<Node> sNode, Ptr<Node> rNode, uint32_t bytes) {
 }
 // Calculate Consumed Rx Energy from Antenna Supply with Antenna Power
 double CalculateRxEnergy(Ptr<Node> sNode, Ptr<Node> rNode,
-                         uint32_t packetSize) {
+                         uint32_t packetSize)
+{
   // Validate packet size
-  if (packetSize == 0) {
+  if (packetSize == 0)
+  {
     NS_LOG_WARN("Zero packet size in CalculateRxEnergy");
     return 0.0;
   }
 
   // Calculate RX power with validation
   double rxPower = CalculateRxAntennaPower(rNode);
-  if (rxPower <= 0) {
+  if (rxPower <= 0)
+  {
     NS_LOG_WARN("Invalid RX power value for node " << rNode->GetId());
     return 0.0;
   }
@@ -168,7 +214,8 @@ double CalculateRxEnergy(Ptr<Node> sNode, Ptr<Node> rNode,
   // Calculate data rate with validation
   DataRate dataRate = CalculateRxDataRateShannon(sNode, rNode);
   double bitRate = dataRate.GetBitRate();
-  if (bitRate <= 0) {
+  if (bitRate <= 0)
+  {
     NS_LOG_WARN("Invalid data rate between node " << sNode->GetId() << " and "
                                                   << rNode->GetId());
     return 0.0;
@@ -187,24 +234,26 @@ double CalculateRxEnergy(Ptr<Node> sNode, Ptr<Node> rNode,
 /**
  * It's important to note that the actual throughput experienced by users is typically lower than the theoretical maximum due to protocol overhead,
  *  interference, and other environmental factors.​
- * 
+ *
  * If you're aiming to achieve higher data rates, consider the following:
 
-    Increase Spatial Streams: Utilizing devices that support multiple spatial streams (e.g., 2x2 MIMO) 
+    Increase Spatial Streams: Utilizing devices that support multiple spatial streams (e.g., 2x2 MIMO)
     can double the data rate. For instance, two spatial streams with the same settings can achieve up to 270 Mbps with an 800 ns GI or 300 Mbps with a 400 ns GI.​
     Winncom+1CableFree+1
 
     Shorter Guard Interval: If your environment supports it, switching to a 400 ns GI can provide a modest increase in data rate.​
 
     Upgrade to Newer Standards: Transitioning to 802.11ac (Wi-Fi 5) or 802.11ax (Wi-Fi 6) can offer significantly higher data rates and improved efficiency.​
- * 
+ *
  */
 // Calculate Channel Bandwidth;
-DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
+DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
+{
   // Validate inputs
   Ptr<WifiNetDevice> dev = GetNodeWifiNetDevice(sNode);
   Ptr<WifiPhy> phy = dev ? dev->GetPhy() : nullptr;
-  if (!dev || !phy) {
+  if (!dev || !phy)
+  {
     NS_LOG_ERROR("Invalid WifiNetDevice or WifiPhy");
     return DataRate(0);
   }
@@ -212,7 +261,8 @@ DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
   // Get mobility models
   Ptr<MobilityModel> senderMobility = GetNodeMobilityModel(sNode);
   Ptr<MobilityModel> receiverMobility = GetNodeMobilityModel(rNode);
-  if (!senderMobility || !receiverMobility) {
+  if (!senderMobility || !receiverMobility)
+  {
     NS_LOG_ERROR("Failed to retrieve mobility models");
     return DataRate(0);
   }
@@ -221,7 +271,7 @@ DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
   ns3::MHz_u bw = phy->GetChannelWidth();
   // Calculate SNR
   double txPower = GetTxSignalPower(sNode);
-  double rxPower = GetRxSignalPower(txPower, senderMobility, receiverMobility);
+  double rxPower = GetRSS(txPower, senderMobility, receiverMobility);
 
   double snr = CalculateSnr(sNode, rNode); // Cap at 30 dB
 
@@ -231,17 +281,20 @@ DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
   NS_LOG_INFO("TX Mode: " << mode.GetUniqueName()
                           << ", SNR: " << 10 * log10(snr) << " dB"
                           << " Capacity: " << shannonCapacity / 1e6 << " Mbps");
-  if (shannonCapacity <= 0) {
+  if (shannonCapacity <= 0)
+  {
     NS_LOG_ERROR("Invalid Data Rate " << shannonCapacity << "bps");
     return 0;
   }
   return DataRate(static_cast<uint64_t>(shannonCapacity));
 }
-DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
+DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
+{
   // Validate inputs
   Ptr<WifiNetDevice> rDev = GetNodeWifiNetDevice(rNode);
   Ptr<WifiPhy> rPhy = rDev ? rDev->GetPhy() : nullptr;
-  if (!rDev || !rPhy) {
+  if (!rDev || !rPhy)
+  {
     NS_LOG_ERROR("Invalid WifiNetDevice or WifiPhy");
     return DataRate(0);
   }
@@ -249,13 +302,15 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
   // Check mobility models
   Ptr<MobilityModel> rMob = GetNodeMobilityModel(rNode);
   Ptr<MobilityModel> sMob = GetNodeMobilityModel(sNode);
-  if (!rMob || !sMob) {
+  if (!rMob || !sMob)
+  {
     NS_LOG_ERROR("Failed to retrieve mobility models");
     return DataRate(0);
   }
 
   // Check for recorded RX data
-  if (rxInstantMap.find(rNode) == rxInstantMap.end()) {
+  if (rxInstantMap.find(rNode) == rxInstantMap.end())
+  {
     NS_LOG_WARN("No RX data recorded for node " << rNode->GetId());
     return DataRate(0);
   }
@@ -264,7 +319,7 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
   WifiMode mode = rPhy->GetDefaultMode();
   ns3::MHz_u bw = rPhy->GetChannelWidth();
   double txPower = GetTxSignalPower(sNode);
-  double rxPower = GetRxSignalPower(txPower, sMob, rMob);
+  double rxPower = GetRSS(txPower, sMob, rMob);
   double snr = CalculateSnr(sNode, rNode);
   double noisePower = CalculateThermalNoise(bw);
   double shannonCapacity = bw * 1e6 * log2(1 + snr);
@@ -287,17 +342,20 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode) {
       shannonCapacity;
   NS_LOG_INFO("RX Mode: " << mode.GetUniqueName() << ", Calculated Data Rate: "
                           << finalRate / 1e6 << " Mbps");
-  if (finalRate <= 0) {
+  if (finalRate <= 0)
+  {
     NS_LOG_ERROR("Invalid Data Rate " << finalRate << "bps");
     return 0;
   }
   return DataRate(static_cast<uint64_t>(finalRate));
 }
-double CalculatePracticalBandwidth(const std::map<FlowId, FlowMonitor::FlowStats>& stats, double intervalSeconds) {
+double CalculatePracticalBandwidth(const std::map<FlowId, FlowMonitor::FlowStats> &stats, double intervalSeconds)
+{
   uint64_t totalBits = 0;
 
-  for (const auto& flow : stats) {
-      totalBits += flow.second.txBytes * 8; // Convert bytes to bits
+  for (const auto &flow : stats)
+  {
+    totalBits += flow.second.txBytes * 8; // Convert bytes to bits
   }
 
   return (intervalSeconds > 0) ? static_cast<double>(totalBits) / intervalSeconds : 0.0;
@@ -338,7 +396,8 @@ double CalculatePracticalBandwidth(const std::map<FlowId, FlowMonitor::FlowStats
 
  */
 // Calculate thermal noise of channel in dBm
-double CalculateThermalNoise(double bandwidthHz, double noiseFigureDb) {
+double CalculateThermalNoise(double bandwidthHz, double noiseFigureDb)
+{
   const double BOLTZMANN = 1.3803e-23; // Boltzmann's constant (J/K)
   const double TEMPERATURE = 290.0;    // Room temperature (Kelvin)
   double thermalNoise = BOLTZMANN * TEMPERATURE * bandwidthHz;
@@ -347,22 +406,26 @@ double CalculateThermalNoise(double bandwidthHz, double noiseFigureDb) {
 }
 
 // Calculate thermal noise of channel in dBm
-double CalculateThermalNoise(double bandwidthHz) {
+double CalculateThermalNoise(double bandwidthHz)
+{
   const double kT_dBm_Hz = -174.0;                  // Thermal noise density
   return kT_dBm_Hz + 10 * log10(bandwidthHz) + 7.0; // With 7dB noise figure
 }
 
 // Calculate SNR value of channel
-double CalculateSnr(Ptr<Node> sender, Ptr<Node> receiver) {
+double CalculateSnr(Ptr<Node> sender, Ptr<Node> receiver)
+{
 
   // Verify nodes and get devices
-  if (!sender || !receiver) {
+  if (!sender || !receiver)
+  {
     NS_LOG_WARN("Invalid sender or receiver node");
     return -1000.0;
   }
 
   Ptr<WifiNetDevice> rxWifiDev = GetNodeWifiNetDevice(receiver);
-  if (!rxWifiDev) {
+  if (!rxWifiDev)
+  {
     NS_LOG_WARN("No WiFi device found on receiver node");
     return -1000.0;
   }
@@ -370,14 +433,15 @@ double CalculateSnr(Ptr<Node> sender, Ptr<Node> receiver) {
   // Get PHY layer parameters
   Ptr<WifiPhy> rxPhy = rxWifiDev->GetPhy();
   double bandwidthHz = rxPhy->GetChannelWidth() * 1e6;
-  if (bandwidthHz <= 0) {
+  if (bandwidthHz <= 0)
+  {
     NS_LOG_WARN("Invalid channel bandwidth");
     return -1000.0;
   }
 
-  // Get power values (assuming GetRxSignalPower/GetTxSignalPower return dBm)
+  // Get power values (assuming GetRSS/GetTxSignalPower return dBm)
   double txPower_dBm = GetTxSignalPower(sender);
-  double rxPower_dBm = GetRxSignalPower(sender, receiver);
+  double rxPower_dBm = GetRSS(sender, receiver);
 
   // Calculate noise power (dBm)ssss
   double noisePower_dBm =
@@ -395,13 +459,15 @@ double CalculateSnr(Ptr<Node> sender, Ptr<Node> receiver) {
 }
 
 // Calculate Energy Consumption of node
-double CalculateCurrentConsumption(Ptr<Node> node) {
+double CalculateCurrentConsumption(Ptr<Node> node)
+{
   Ptr<WifiRadioEnergyModel> energyModel = nodeComponents[node].wifiRadioEnergyModel;
-  Ptr<BasicEnergySource> source =DynamicCast<BasicEnergySource>( nodeComponents[node].energySource);
+  Ptr<BasicEnergySource> source = DynamicCast<BasicEnergySource>(nodeComponents[node].energySource);
   return energyModel->GetCurrentA() * source->GetSupplyVoltage();
 }
 // Update Node Energy Consumption Value with Real Value
-void UpdateEnergyAccounting(Ptr<Node> node, double duration) {
+void UpdateEnergyAccounting(Ptr<Node> node, double duration)
+{
   Ptr<BasicEnergySource> source = DynamicCast<BasicEnergySource>(nodeComponents[node].energySource);
   double consumption = CalculateCurrentConsumption(node) * duration;
   source->UpdateEnergySource(); // Force energy update
