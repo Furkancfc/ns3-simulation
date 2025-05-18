@@ -1,4 +1,5 @@
 #include "includes.h"
+#include "main_util.h"
 #ifndef MAIN_H
 #define MAIN_H
 extern ns3::dBm_u maxPower;
@@ -29,50 +30,8 @@ extern NodeContainer staNodes;
 extern uint32_t simple_udp_app_payload_size;
 
 
-struct NodeComponents {
-    ns3::Ptr<ns3::energy::EnergySource> energySource;
-    ns3::Ptr<ns3::energy::EnergyHarvester> energyHarvester;
-    ns3::Ptr<ns3::energy::DeviceEnergyModel> deviceEnergyModel;
-    ns3::Ptr<ns3::WifiRadioEnergyModel> wifiRadioEnergyModel;
-    ns3::Ptr<ns3::WifiNetDevice> wifiNetDevice;
-    ns3::Ptr<ns3::MobilityModel> mobilityModel;
-};
 
-struct EnergyInstants {
-    double timeNow;
-    double currentTxPower;
-    double currentRxPower;
-    double currentTxDuration;
-    double currentRxDuration;
-    uint64_t currentPackets;
-    uint64_t currentBytes;
-    double currentEnergy;
-    double currentEnergyConsumption;
-    double totalEnergyConsumption;
-};
-struct InstantCounts {
-    double timestamp;
-    uint64_t packets;
-    uint64_t bytes;
-    double power;
-    double duration;
-    double energy;
-};
-
-extern std::map<ns3::Ptr<ns3::Node>,EnergyInstants> energyInstantsMap;
-extern std::map<ns3::Ptr<ns3::Node>, InstantCounts>
-    previousRxDataInstant; // timeNow, currentPackets, currentEnergy
-extern std::map<Ptr<ns3::Node>, InstantCounts> previousTxDataInstant;
-extern std::map<Ptr<Node>, InstantCounts> txInstantMap;  // For sender
-extern std::map<Ptr<Node>, InstantCounts> rxInstantMap;  // For receiver
-extern std::map<Ptr<Node>, std::pair<uint64_t, double>>
-	txPacketsMap; // packetCount, energy
-extern std::map<Ptr<Node>, std::pair<uint64_t, double>>
-	rxPacketsMap; // packetCount, energy
 extern std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> nodeDeviceEnergyModel;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> txPacketsMap;
-extern std::map<ns3::Ptr<ns3::Node>, std::pair<uint64_t,double>> rxPacketsMap;
-
 using NodeComponentMap = std::map<ns3::Ptr<ns3::Node>, NodeComponents>;
 extern NodeComponentMap nodeComponents;
 

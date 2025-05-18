@@ -71,6 +71,7 @@ enum class FileLogType
 	RxTxPacket,
 	PathLoss,
 	FlowMonitor,
+    FlowMonitorXml,
 	SnrLog,
 	StdOut,
 	EnergyTrace,

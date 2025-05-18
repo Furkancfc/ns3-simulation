@@ -23,11 +23,12 @@ double CalculateTxEnergy(Ptr<Node> sNode, Ptr<Node> rNode, uint32_t bytes);
 double CalculateRxEnergy(Ptr<Node> sNode, Ptr<Node> rNode, uint32_t packetSize);
 DataRate CalculateTxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode);
 DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode);
-double CalculatePracticalBandwidth(const std::map<FlowId, FlowMonitor::FlowStats>& stats, double intervalSeconds);
+double CalculateFlowTxBandwidth(const std::pair<const ns3::FlowId, ns3::FlowMonitor::FlowStats> &flow);
+double CalculateFlowRxBandwidth(const std::pair<const ns3::FlowId, ns3::FlowMonitor::FlowStats> &flow);
 double CalculateThermalNoise(double bandwidthHz, double noiseFigureDb);
 double CalculateThermalNoise(double bandwidthHz);
 double CalculateSnr(Ptr<Node> transmitter, Ptr<Node> receiver);
 double CalculateCurrentConsumption(ns3::Ptr<ns3::Node> node);
 void UpdateEnergyAccounting(ns3::Ptr<ns3::Node> node, double duration);
 Address GetNodeMacAddress(Ptr<Node> node);
-#endif // UTIL_H
+#endif // UTIL_H\

@@ -1,6 +1,6 @@
 #include "includes.h"
-#include "main.h"
 #include "util.h"
+
 
 std::string GetExecutablePath();
 std::string GetExecutableDir();
@@ -24,12 +24,8 @@ public:
 		return tid;
 	}
 	NS_OBJECT_ENSURE_REGISTERED(Handler);
-	InstantCounts previousRxInstants;
-	InstantCounts previousTxInstants;
-	InstantCounts currentTxInstant; // For sender
-	InstantCounts currentRxInstant; // For receiver
-	EnergyInstants currentEnergyInstants;
-	EnergyInstants previousEnergyInstants;
+	Counters previousCounters;
+	Counters currentCounters;
 	NodeComponents nodeComponents;
 	Ptr<Packet> packet;
 };

@@ -29,7 +29,7 @@ Ipv4Address GetNodeIpv4Address(Ptr<Node> node, uint32_t interfaceIndex)
 InetSocketAddress GetNodeInetSocketAddr(Ptr<Node> node, uint16_t port)
 {
   uint32_t index = GetNodeWifiNetDevice(node)->GetIfIndex();
-  Ipv4Address ip = GetNodeIpv4Address(node,index);
+  Ipv4Address ip = GetNodeIpv4Address(node, index);
   return InetSocketAddress(ip, port);
 }
 
@@ -292,6 +292,8 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
 {
   // Validate inputs
   Ptr<WifiNetDevice> rDev = GetNodeWifiNetDevice(rNode);
+  Ptr<Handler> sHandler = handlers[sNode];
+  Ptr<Handler> rHandler = handlers[rNode];
   Ptr<WifiPhy> rPhy = rDev ? rDev->GetPhy() : nullptr;
   if (!rDev || !rPhy)
   {
@@ -309,7 +311,7 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
   }
 
   // Check for recorded RX data
-  if (rxInstantMap.find(rNode) == rxInstantMap.end())
+  if (rHandler != nullptr)
   {
     NS_LOG_WARN("No RX data recorded for node " << rNode->GetId());
     return DataRate(0);
@@ -323,18 +325,8 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
   double snr = CalculateSnr(sNode, rNode);
   double noisePower = CalculateThermalNoise(bw);
   double shannonCapacity = bw * 1e6 * log2(1 + snr);
-
-  /*     // Measured rate (empirical)
-      double currentTime = Simulator::Now().GetSeconds();
-      double lastTime = rxInstantMap[rNode].timestamp;
-      double timeInterval = currentTime - lastTime;
-      double measuredRate = 0;
-      if (timeInterval > 0) {
-          measuredRate = (rxInstantMap[rNode].packets * 8) / timeInterval;
-      }
-
-  */
-  // Hybrid rate selection
+  // Measured rate (empirical)
+  double measuredRate = (rHandler->currentCounters.instantRxCounts.packets * 8) / rHandler->currentCounters.instantRxCounts.duration;
   double finalRate = /* (measuredRate > 0)
       ? std::min(shannonCapacity, measuredRate)
       : shannonCapacity;
@@ -349,18 +341,26 @@ DataRate CalculateRxDataRateShannon(Ptr<Node> sNode, Ptr<Node> rNode)
   }
   return DataRate(static_cast<uint64_t>(finalRate));
 }
-double CalculatePracticalBandwidth(const std::map<FlowId, FlowMonitor::FlowStats> &stats, double intervalSeconds)
+// bps
+double CalculateFlowTxBandwidth(const std::pair<const ns3::FlowId, ns3::FlowMonitor::FlowStats> &flow)
 {
   uint64_t totalBits = 0;
+  ns3::Time duration = Time(0);
+  totalBits = flow.second.txBytes * 8; // Convert bytes to bits
+  duration = flow.second.timeLastTxPacket - flow.second.timeFirstTxPacket;
 
-  for (const auto &flow : stats)
-  {
-    totalBits += flow.second.txBytes * 8; // Convert bytes to bits
-  }
-
-  return (intervalSeconds > 0) ? static_cast<double>(totalBits) / intervalSeconds : 0.0;
+  return (duration.GetSeconds() > 0) ? static_cast<double>(totalBits) / duration.GetSeconds() : 0.0;
 }
+// bps
+double CalculateFlowRxBandwidth(const std::pair<const ns3::FlowId, ns3::FlowMonitor::FlowStats> &flow){
+  uint64_t totalBits = 0;
+  ns3::Time duration = Time(0);
+  totalBits = flow.second.rxBytes * 8; // Convert bytes to bits
+  duration = flow.second.timeLastRxPacket - flow.second.timeFirstRxPacket;
 
+  return (duration.GetSeconds() > 0) ? static_cast<double>(totalBits) / duration.GetSeconds() : 0.0;
+
+}
 /* DataRate CalculateTxDataRate(Ptr<Node> sNode, Ptr<Node> rNode) {
   // Retrieve the WifiNetDevice from the sender node
   Ptr<WifiNetDevice> senderDevice = sNode->GetDevice(0)->GetObject<WifiNetDevice>();

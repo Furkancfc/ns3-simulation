@@ -1,7 +1,6 @@
 #include "main.h"
 #include "includes.h"
 #include "logger.h"
-#include "main_util.h"
 #include "propagation.h"
 #include "util.h"
 #include <filesystem>
@@ -22,16 +21,6 @@ Time beginTime = Seconds(5.0);
 const Time interval = Seconds(1.0);
 Time endTime = Minutes(5.0);
 NodeComponentMap nodeComponents;
-std::map<ns3::Ptr<ns3::Node>, EnergyInstants> energyInstantsMap;
-std::map<ns3::Ptr<ns3::Node>, InstantCounts>
-	previousRxDataInstant; // timeNow, currentPackets, currentEnergy
-std::map<Ptr<ns3::Node>, InstantCounts> previousTxDataInstant;
-std::map<Ptr<Node>, InstantCounts> txInstantMap; // For sender
-std::map<Ptr<Node>, InstantCounts> rxInstantMap; // For receiver
-std::map<Ptr<Node>, std::pair<uint64_t, double>>
-	txPacketsMap; // packetCount, energy
-std::map<Ptr<Node>, std::pair<uint64_t, double>>
-	rxPacketsMap; // packetCount, energy
 std::map<ns3::Ptr<ns3::Node>, ns3::Ptr<ns3::energy::DeviceEnergyModel>> nodeDeviceEnergyModel;
 uint32_t simple_udp_app_payload_size;
 
@@ -57,6 +46,7 @@ std::unordered_map<FileLogType, std::string> logTemplates{
 	{FileLogType::RxTxValues, "nodes/{}/rx_tx_values.csv"},
 	{FileLogType::RxTxPacket, "nodes/{}/rx_tx_packet_log.csv"},
 	{FileLogType::FlowMonitor, "nodes/{}/flow_monitor{}:{}.csv"},
+	{FileLogType::FlowMonitorXml, "flow_monitor.xml"},
 	{FileLogType::SnrLog, "nodes/{}/snr_log.csv"},
 	{FileLogType::StdOut, "stdout.log"},
 	{FileLogType::EnergyTrace, "nodes/{}/energy_trace.csv"},
@@ -87,7 +77,7 @@ int main(int argc, char *argv[])
 	minThresholdPower = env.count("MIN_THRESHOLD_POWER") ? std::stoi(env["MIN_THRESHOLD_POWER"]) : -40;
 	maxThresholdPower = env.count("MAX_THRESHOLD_POWER") ? std::stoi(env["MAX_THRESHOLD_POWER"]) : -30;
 	senderTxBegin = env.count("TX_BEGIN") ? std::stoi(env["TX_BEGIN"]) : 10;
-	bool sinkapprun = env.count("SINnode->GetDevice(1)K_APP_RUN") ? std::stoi(env["SINK_APP_RUN"]) : 0;
+	bool sinkapprun = env.count("SINK_APP_RUN") ? std::stoi(env["SINK_APP_RUN"]) : 0;
 	bool udpapprun = env.count("UDP_APP_RUN") ? std::stoi(env["UDP_APP_RUN"]) : 0;
 	std::string sinkappdatarate = env.count("SINK_APP_DATA_RATE") ? env["SINK_APP_DATA_RATE"] : "100Mbps";
 	std::string udpAppDataRateEnv = env.count("UDP_APP_DATA_RATE") ? env["UDP_APP_DATA_RATE"] : "100Mbps";
@@ -356,11 +346,6 @@ int main(int argc, char *argv[])
 		auto mgr = nodeComponents[node].wifiNetDevice->GetRemoteStationManager();
 		mgr->AddBasicMcs(WifiMode("HtMcs7"));
 		mgr->AddBasicMcs(WifiMode("HtMcs7"));
-		txPacketsMap[node];
-		rxPacketsMap[node];
-		energyInstantsMap[node];
-		previousRxDataInstant[node];
-		previousTxDataInstant[node];
 	}
 	for (int i = 0; i < senderNodes.GetN(); i++)
 	{
@@ -393,39 +378,12 @@ int main(int argc, char *argv[])
 	FlowMonitorHelper flowHelper;
 	flowMonitor = flowHelper.InstallAll();
 	FlowMonitorHelper *helperPtr = &flowHelper;
-#pragma region configuration
-	for (int i = 0; i < senderNodes.GetN(); i++)
 	{
-		Ptr<Node> senderNode = senderNodes.Get(i);
-		if (sinkapprun)
-		{
-			uint32_t index = GetNodeWifiNetDevice(senderNode)->GetIfIndex();
-			OnOffHelper onOff("ns3::UdpSocketFactory",
-							  GetNodeIpv4Address(senderNode, index));
-			onOff.SetAttribute("DataRate", StringValue("1Gbps"));
-			onOff.SetAttribute("PacketSize", UintegerValue(onoffAppPacketSize));
-			onOff.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
-			onOff.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
-			ApplicationContainer senderApp = onOff.Install(senderNode);
-			senderApp.Start(beginTime + Seconds(1.0));
-			senderApp.Stop(endTime);
-		}
-		if (udpapprun)
-		{
-			UdpClientHelper client(GetNodeInetSocketAddr(senderNode, udpAppPort));
-
-			Time interPacketInterval; // Interval between packets (10,000 packets per second)
-			// calculate interPacketInterval based on the data rate
-			interPacketInterval = Seconds((double)udpAppPacketSize * 8 / udpAppDataRate.GetBitRate());
-			client.SetAttribute("MaxPackets", UintegerValue(udpAppMaxPacketCount));
-			client.SetAttribute("Interval", TimeValue(interPacketInterval));
-			client.SetAttribute("PacketSize", UintegerValue(udpAppPacketSize));
-
-			ApplicationContainer clientApps = client.Install(senderNode);
-			clientApps.Start(beginTime + Seconds(1.0));
-			clientApps.Stop(endTime);
-		}
+		std::string path = logDirectory + "/" + getLogPath(FileLogType::FlowMonitorXml, nullptr);
+		helperPtr->SerializeToXmlFile(path, true, true);
 	}
+
+#pragma region configuration
 	for (int j = 0; j < receiverNodes.GetN(); j++)
 	{
 		Ptr<Node> receiverNode = receiverNodes.Get(j);
@@ -452,19 +410,49 @@ int main(int argc, char *argv[])
 		Ptr<Node> senderNode = senderNodes.Get(i);
 		Ptr<SenderHandler> senderHandler = senderHandlers[senderNode];
 
-		Simulator::Schedule(beginTime, &ControlTxPowers, senderNode);
-		Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, senderNode);
-		Simulator::Schedule(beginTime, &LogEnergy, senderNode);
-
 		for (int j = 0; j < receiverNodes.GetN(); j++)
 		{
 			Ptr<Node> receiverNode = receiverNodes.Get(j);
 			Ptr<ReceiverHandler> receiverHandler = receiverHandlers[receiverNode];
+			if (sinkapprun)
+			{
+				uint32_t index = GetNodeWifiNetDevice(receiverNode)->GetIfIndex();
+				OnOffHelper onOff("ns3::UdpSocketFactory",
+								  GetNodeIpv4Address(receiverNode, index));
+				onOff.SetAttribute("DataRate", StringValue("1Gbps"));
+				onOff.SetAttribute("PacketSize", UintegerValue(onoffAppPacketSize));
+				onOff.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
+				onOff.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+
+				ApplicationContainer senderApp = onOff.Install(senderNode);
+				senderApp.Start(beginTime + Seconds(1.0));
+				senderApp.Stop(endTime);
+			}
+			if (udpapprun)
+			{
+				UdpClientHelper client(GetNodeInetSocketAddr(receiverNode, udpAppPort));
+
+				Time interPacketInterval; // Interval between packets (10,000 packets per second)
+				// calculate interPacketInterval based on the data rate
+				interPacketInterval = Seconds((double)udpAppPacketSize * 8 / udpAppDataRate.GetBitRate());
+				client.SetAttribute("MaxPackets", UintegerValue(udpAppMaxPacketCount));
+				client.SetAttribute("Interval", TimeValue(interPacketInterval));
+				client.SetAttribute("PacketSize", UintegerValue(udpAppPacketSize));
+
+				ApplicationContainer clientApps = client.Install(senderNode);
+				clientApps.Start(beginTime + Seconds(1.0));
+				clientApps.Stop(endTime);
+			}
 			if (adaptive)
 			{
 				Simulator::Schedule(beginTime, &AdjustSignal, senderNode, receiverNode);
 				Simulator::Schedule(beginTime, &AdjustSignal, receiverNode, senderNode);
 			}
+
+			Simulator::Schedule(beginTime, &ControlTxPowers, senderNode);
+			Simulator::Schedule(beginTime, &LogWifiNetDevicePropertiesIntreval, senderNode);
+			Simulator::Schedule(beginTime, &LogEnergy, senderNode);
+
 			// Simulation Adjustments
 			Simulator::Schedule(beginTime, &ControlEnergy, &apEnergySourceContainer);
 			Simulator::Schedule(beginTime, &ControlEnergy, &staEnergySourceContainer);
@@ -475,7 +463,6 @@ int main(int argc, char *argv[])
 								helperPtr, udpsocketport, senderNode, receiverNode);
 			Simulator::Schedule(beginTime, &LogFlowMonitor, flowMonitor,
 								helperPtr, udpAppPort, senderNode, receiverNode);
-
 			Simulator::Schedule(Seconds(0.0), &LogMain, senderNode, receiverNode);
 			Simulator::Schedule(beginTime, &LogBandwidthValues, senderNode, receiverNode);
 			Simulator::Schedule(beginTime, &LogRxTxSignalPower, senderNode, receiverNode);

@@ -1,7 +1,6 @@
 #include "logger.h"
 #include "includes.h"
 #include "main.h"
-#include "main_util.h"
 #include "propagation.h"
 #include "util.h"
 #include <cmath>
@@ -29,18 +28,7 @@ std::string currentSourcePath;
 std::map<FlowId, uint64_t> previousTxBytes;
 double lastLoggedTime = 0;
 
-struct FlowStatsSnapshot
-{
-	uint64_t txBytes;
-	uint64_t rxBytes;
-	uint32_t txPackets;
-	uint32_t rxPackets;
-	Time delaySum;
-	Time jitterSum;
-	uint32_t lostPackets;
-	Time lastRxTime;
-};
-std::map<FlowId, FlowStatsSnapshot> previousStats;
+std::map<FlowId, FlowMonitor::FlowStats> previousStats;
 
 NS_LOG_COMPONENT_DEFINE("Logger");
 
@@ -186,24 +174,23 @@ void LogEnergy(Ptr<Node> node)
 	// 3. Prepare logging
 	double timeNow = Simulator::Now().GetSeconds();
 	Ptr<Handler> handler = handlers[node];
-	auto previousEnergyData = handler->previousEnergyInstants;
-	auto currentEnergyData = handler->currentEnergyInstants;
 
-	auto prevRxData = handler->previousRxInstants;
-	auto prevTxData = handler->previousTxInstants;
+	double currentTimestamp = handler->currentCounters.timestamp;
+	double previousTimestamp = handler->previousCounters.timestamp;
 
-	auto currentRxData = handler->currentRxInstant;
-	auto currentTxData = handler->currentTxInstant;
+	auto prevRxData = handler->previousCounters.instantRxCounts;
+	auto prevTxData = handler->previousCounters.instantTxCounts;
 
-	double previousEnergy = previousEnergyData.currentEnergy;
-	double currentEnergy = currentEnergyData.currentEnergy;
+	auto currentRxData = handler->currentCounters.instantRxCounts;
+	auto currentTxData = handler->currentCounters.instantTxCounts;
 
-	double previousConsumption = previousEnergyData.currentEnergyConsumption;
-	double currentConsumption = currentEnergyData.currentEnergyConsumption;
+	auto previousTxEnergyData = handler->previousCounters.energyTxInstants;
+	auto currentTxEnergyData = handler->currentCounters.energyTxInstants;
+	auto previousRxEnergyData = handler->previousCounters.energyRxInstants;
+	auto currentRxEnergyData = handler->currentCounters.energyRxInstants;
+
 	// 4. Get current stats
 
-	double currentTxTime = currentTxData.timestamp;
-	double currentRxTime = currentRxData.timestamp;
 	double currentTxDuration = currentTxData.duration;
 	double currentRxDuration = currentRxData.duration;
 	double currentTx = currentTxData.power;
@@ -213,10 +200,8 @@ void LogEnergy(Ptr<Node> node)
 	uint64_t currentTxPackets = currentTxData.packets;
 	uint64_t currentRxPackets = currentRxData.packets;
 	uint64_t currentPackets = currentTxPackets + currentRxPackets;
-	double currentEnergyTotal = currentTxEnergy + currentRxEnergy;
-
-	double prevTxTime = prevTxData.timestamp;
-	double prevRxTime = prevRxData.timestamp;
+	double currentEnergyTotal = currentTxEnergyData.currentEnergy + currentRxEnergyData.currentEnergy;
+	
 	double prevTx = prevTxData.power;
 	double prevRx = prevRxData.power;
 	double prevTxDuration = prevTxData.duration;
@@ -226,15 +211,15 @@ void LogEnergy(Ptr<Node> node)
 	uint64_t prevTxPackets = prevTxData.packets;
 	uint64_t prevRxPackets = prevRxData.packets;
 	uint64_t prevPackets = prevTxPackets + prevRxPackets;
-	double prevEnergy = prevTxEnergy + prevRxEnergy;
+	double prevEnergyTotal = prevTxEnergy + prevRxEnergy;
 	// 6. Calculate deltas from previous data
 
-	double deltaRxTime = currentRxTime - prevRxTime;
+	double deltaRxTime =  currentTimestamp - previousTimestamp;
 	uint64_t deltaRxPackets = currentPackets - prevPackets;
-	double deltaRxEnergy = currentEnergy - prevEnergy;
+	double deltaRxEnergy = currentRxEnergyData.currentEnergy - previousRxEnergyData.currentEnergy;
 	double deltaRx = currentRx - prevRx;
 
-	double deltaTxTime = currentTxTime - prevTxTime;
+	double deltaTxTime = currentTimestamp - previousTimestamp;
 	uint64_t deltaTxPackets = currentTxPackets - prevTxPackets;
 	double deltaTxEnergy = currentTxEnergy - prevTxEnergy;
 	double deltaTx = currentTx - prevTx;
@@ -245,14 +230,15 @@ void LogEnergy(Ptr<Node> node)
 	double powerTxPerPacket = currentTxEnergy / currentTxDuration;
 	double powerRxPerPacket = currentRxEnergy / currentRxDuration;
 
+	double currentConsumption = currentEnergyTotal - prevEnergyTotal;
 	// 8. Log all data
 	LogToFile(
 		getLogPath(FileLogType::EnergyLog, sNodeId),
 		BuildLogMessage(timeNow, ",",
-						currentRx, ",",		  // Rx Instant Power
-						currentTx, ",",		  // Tx Instant Power
-						currentRxEnergy, ",", // Rx Instant Energy
-						currentTxEnergy, ",", // Tx Instant Energy
+						currentRxData.power, ",",		  // Rx Instant Power
+						currentTxData.power, ",",		  // Tx Instant Power
+						currentRxData.energy, ",", // Rx Instant Energy
+						currentTxData.energy, ",", // Tx Instant Energy
 						powerRxPerPacket, ",",
 						powerTxPerPacket, ",",
 						energyRxPerPacket, ",",
@@ -328,7 +314,6 @@ void LogBandwidthValues(Ptr<Node> sNode, Ptr<Node> rNode)
 	DataRate txDataRate = CalculateTxDataRateShannon(sNode, rNode);
 	Ptr<MobilityModel> rmob = GetNodeMobilityModel(rNode);
 	Ptr<MobilityModel> smob = GetNodeMobilityModel(sNode);
-
 	// Convert DataRate to bit rate in Mbps
 	double rxBitRate = rxDataRate.GetBitRate() / 1e6; // Convert to Mbps
 	double txBitRate = txDataRate.GetBitRate() / 1e6; // Convert to Mbps
@@ -473,20 +458,21 @@ void LogRxTxPackets(Ptr<Node> sNode, Ptr<Node> rNode)
 	Ptr<MobilityModel> rmob = GetNodeMobilityModel(rNode);
 	double distance = smob->GetDistanceFrom(rmob);
 	double currentTime = Simulator::Now().GetSeconds();
+	auto& sData = handlers[sNode];
+	auto& rData = handlers[rNode];
+
 
 	// Get cumulative packet counts
-	uint64_t sTxTotal = txPacketsMap[sNode].first;
-	uint64_t rTxTotal = txPacketsMap[rNode].first;
-	uint64_t sRxTotal = rxPacketsMap[sNode].first;
-	uint64_t rRxTotal = rxPacketsMap[rNode].first;
+	uint64_t sTxTotal = sData->currentCounters.totalTxCounts.totalPackets;
+	uint64_t rTxTotal = rData->currentCounters.totalTxCounts.totalPackets;
+	uint64_t sRxTotal = sData->currentCounters.totalRxCoutns.totalPackets;
+	uint64_t rRxTotal = rData->currentCounters.totalRxCoutns.totalPackets;
 
 	// Get instantaneous values (since last log)
-	double lastLogTime = currentTime - 1.0; // Initialize to 1 second ago
-
-	uint64_t lastSTx = txInstantMap[sNode].packets;
-	uint64_t lastRRx = rxInstantMap[rNode].packets;
-	uint64_t lastRTx = txInstantMap[rNode].packets;
-	uint64_t lastSRx = rxInstantMap[sNode].packets;
+	uint64_t lastSTx = sData->currentCounters.instantTxCounts.packets;
+	uint64_t lastSRx = sData->currentCounters.instantRxCounts.packets;
+	uint64_t lastRTx = rData->currentCounters.instantTxCounts.packets;
+	uint64_t lastRRx = rData->currentCounters.instantRxCounts.packets;
 
 	// Update last values for next iteration
 	// Calculate success rates
@@ -521,7 +507,7 @@ void LogFlowMonitor(Ptr<FlowMonitor> monitor, FlowMonitorHelper *helper, uint16_
 	uint32_t sNodeId = sender->GetId();
 	uint32_t rNodeId = receiver->GetId();
 	monitor->CheckForLostPackets();
-
+	
 	Ptr<Ipv4FlowClassifier> classifier = DynamicCast<Ipv4FlowClassifier>(helper->GetClassifier());
 	auto stats = monitor->GetFlowStats();
 
@@ -530,36 +516,41 @@ void LogFlowMonitor(Ptr<FlowMonitor> monitor, FlowMonitorHelper *helper, uint16_
 	// Theoretical Channel Capacity
 	const double capacityBps = CalculateTxDataRateShannon(sender, receiver).GetBitRate();
 	const double capacityMbps = capacityBps / 1e6;
-
 	for (const auto &flow : stats)
 	{
+		previousStats[flow.first] = flow.second;
 		Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow(flow.first);
-
+		
 		// Filter flows: only process flows where source or destination port equals monitoredPort
 		if (t.sourcePort != monitoredPort && t.destinationPort != monitoredPort)
 		{
 			continue;
 		}
-
+		
 		const auto &st = flow.second;
-		FlowStatsSnapshot &prev = previousStats[flow.first];
-
+		FlowMonitor::FlowStats* prev = &(previousStats[flow.first]);
+		if(prev != nullptr){
+			continue;
+		}
+		
 		// Calculate interval duration
-		double intervalDuration = (st.timeLastRxPacket - prev.lastRxTime).GetSeconds();
+		double intervalDuration = (st.timeLastRxPacket - prev->timeLastRxPacket).GetSeconds();
 		if (intervalDuration <= 0)
 		{
 			continue; // Avoid division by zero or negative intervals
 		}
-
+		
 		// Calculate per-interval metrics
-		uint64_t intervalTxBytes = st.txBytes - prev.txBytes;
-		uint64_t intervalRxBytes = st.rxBytes - prev.rxBytes;
-		uint32_t intervalTxPackets = st.txPackets - prev.txPackets;
-		uint32_t intervalRxPackets = st.rxPackets - prev.rxPackets;
-		uint32_t intervalLostPackets = st.lostPackets - prev.lostPackets;
-		Time intervalDelaySum = st.delaySum - prev.delaySum;
-		Time intervalJitterSum = st.jitterSum - prev.jitterSum;
-
+		uint64_t intervalTxBytes = st.txBytes - prev->txBytes;
+		uint64_t intervalRxBytes = st.rxBytes - prev->rxBytes;
+		uint32_t intervalTxPackets = st.txPackets - prev->txPackets;
+		uint32_t intervalRxPackets = st.rxPackets - prev->rxPackets;
+		uint32_t intervalLostPackets = st.lostPackets - prev->lostPackets;
+		Time intervalDelaySum = st.delaySum - prev->delaySum;
+		Time intervalJitterSum = st.jitterSum - prev->jitterSum;
+		double flowTxBandwidth = CalculateFlowTxBandwidth(flow) / 1e6;
+		double flowRxBandwidth = CalculateFlowRxBandwidth(flow) / 1e6;
+		
 		double throughputMbps = (intervalRxBytes * 8.0) / intervalDuration / 1e6;
 		double avgDelayMs = (intervalRxPackets > 0) ? intervalDelaySum.GetSeconds() / intervalRxPackets * 1000.0 : 0.0;
 		double avgJitterMs = (intervalRxPackets > 1) ? intervalJitterSum.GetSeconds() / (intervalRxPackets - 1) * 1000.0 : 0.0;
@@ -569,19 +560,12 @@ void LogFlowMonitor(Ptr<FlowMonitor> monitor, FlowMonitorHelper *helper, uint16_
 			getLogPath(FileLogType::FlowMonitor, sNodeId,rNodeId, monitoredPort),
 			std::format("{:.2f},{},{},{},{},{},{:.2f},{:.2f},{:.2f},{:.2f},{:.2f},{}",
 						now, intervalTxPackets, intervalRxPackets, intervalTxBytes / 1e6, intervalRxBytes / 1e6, intervalDuration,
-						throughputMbps, capacityMbps,
+						throughputMbps, capacityMbps,flowTxBandwidth,
 						avgDelayMs, avgJitterMs, lossRatio, intervalLostPackets),
-			"Time,TxPackets,RxPackets,TxBytes(MB),RxBytes(MB),Duration(s),Throughput(Mbps),TheoreticalCapacity(Mbps),AvgDelay(ms),AvgJitter(ms),LossRatio(%),LostPackets");
+			"Time,TxPackets,RxPackets,TxBytes(MB),RxBytes(MB),Duration(s),Throughput(Mbps),ShannonCapacity(Mbps),FlowBandwidth(Mbps),AvgDelay(ms),AvgJitter(ms),LossRatio(%),LostPackets");
 
 		// Update previous statistics
-		prev.txBytes = st.txBytes;
-		prev.rxBytes = st.rxBytes;
-		prev.txPackets = st.txPackets;
-		prev.rxPackets = st.rxPackets;
-		prev.delaySum = st.delaySum;
-		prev.jitterSum = st.jitterSum;
-		prev.lostPackets = st.lostPackets;
-		prev.lastRxTime = st.timeLastRxPacket;
+		previousStats[flow.first] = flow.second;
 	}
 
 	// Schedule the next log event using the defined interval

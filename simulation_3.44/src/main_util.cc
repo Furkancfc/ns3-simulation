@@ -1,7 +1,6 @@
-#include "main_util.h"
+#include "main.h"
 #include "includes.h"
 #include "logger.h"
-#include "main.h"
 #include "propagation.h"
 #include "util.h"
 #include <format>
@@ -134,7 +133,6 @@ void ReceiverHandler::RecvCallback(Ptr<Socket> socket)
 	Ptr<WifiNetDevice> wifiDev = GetNodeWifiNetDevice(rNode);
 	Ptr<WifiRadioEnergyModel> energyModel =
 		this->nodeComponents.wifiRadioEnergyModel;
-	auto &rxMap = rxPacketsMap[rNode];
 	double currentTime = Simulator::Now().GetSeconds();
 	double rxPowerPhy = GetRSS(sNode, rNode);
 	double rxPowerConsumed = CalculateRxAntennaPower(rNode);
@@ -143,15 +141,24 @@ void ReceiverHandler::RecvCallback(Ptr<Socket> socket)
 	double rxBitrate = rxDataRate.GetBitRate();
 	double rxDuration = (rxBitrate > 0) ? (double(bits) / rxBitrate) : 0.001;
 	double rxEnergyConsumed = CalculateRxEnergy(sNode, rNode, this->packet->GetSize());
-	this->previousRxInstants = this->currentRxInstant;
-	this->currentRxInstant = {
-		.timestamp = currentTime,
+
+	this->previousCounters = this->currentCounters;
+	this->currentCounters.timestamp = currentTime;
+	this->currentCounters.instantRxCounts = {
 		.packets = 1, // Just this packet
 		.bytes = bits / 8,
 		.power = rxPowerConsumed,
 		.duration = rxDuration,
 		.energy = rxEnergyConsumed,
 	};
+	this->currentCounters.totalRxCoutns = {
+		.totalPackets = (this->currentCounters.instantRxCounts.packets + currentCounters.totalRxCoutns.totalPackets),
+		.totalBytes = (this->currentCounters.instantRxCounts.bytes + currentCounters.totalRxCoutns.totalBytes ),
+		.totalPower = (this->currentCounters.instantRxCounts.power + currentCounters.totalRxCoutns.totalPower),
+		.totalDuration = (this->currentCounters.instantRxCounts.duration + currentCounters.totalRxCoutns.totalDuration ),
+		.totalEnergy = (this->currentCounters.instantRxCounts.energy + currentCounters.totalRxCoutns.totalEnergy ),
+	};
+	this->packet = packet;
 }
 void SenderHandler::SendPacket(Ptr<Node> rNode)
 {
@@ -162,7 +169,6 @@ void SenderHandler::SendPacket(Ptr<Node> rNode)
 	double currentTime = Simulator::Now().GetSeconds();
 	Ptr<Packet> packet = Create<Packet>(simple_udp_app_payload_size);
 	uint64_t bytesSent = socket->SendTo(packet, 0, sendAddress);
-	auto &txMap = txPacketsMap[sNode];
 	// Perform transmission
 	DataRate dataRateRx = CalculateRxDataRateShannon(sNode, rNode);
 	DataRate dataRateTx = CalculateTxDataRateShannon(sNode, rNode);
@@ -171,16 +177,26 @@ void SenderHandler::SendPacket(Ptr<Node> rNode)
 	double txDuration = (txBitrate > 0) ? (double(bitsSent) / txBitrate) : 0.001;
 	double txEnergy = CalculateTxEnergy(sNode, rNode, bytesSent);
 	double txPower = CalculateTxAntennaPower(sNode);
-	this->previousTxInstants = this->currentTxInstant;
-	this->currentTxInstant = {
-		.timestamp = currentTime,
+
+	
+	this->previousCounters = this->currentCounters;
+	this->currentCounters.timestamp = currentTime;
+	this->currentCounters.instantTxCounts = {
 		.packets = 1, // Just this transmission
 		.bytes = bytesSent,
 		.power = txPower,
 		.duration = txDuration,
 		.energy = txEnergy,
 	};
+	this->currentCounters.totalTxCounts = {
+		.totalPackets = (this->currentCounters.instantTxCounts.packets + currentCounters.totalTxCounts.totalPackets),
+		.totalBytes = (this->currentCounters.instantTxCounts.bytes + currentCounters.totalTxCounts.totalBytes ),
+		.totalPower = (this->currentCounters.instantTxCounts.power + currentCounters.totalTxCounts.totalPower),
+		.totalDuration = (this->currentCounters.instantTxCounts.duration + currentCounters.totalTxCounts.totalDuration ),
+		.totalEnergy = (this->currentCounters.instantTxCounts.energy + currentCounters.totalTxCounts.totalEnergy ),
+	};
 	this->packet = packet;
+	
 	if (bytesSent > 0)
 	{
 		// Account for energy consumption

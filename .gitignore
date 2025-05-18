@@ -7,6 +7,6 @@
 **/.vs/**
 *.csv
 *.png
-*.sh
 *.yuv
 **/temp**/**
+*.log

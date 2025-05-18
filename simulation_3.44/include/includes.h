@@ -82,4 +82,47 @@
 // Avoid using namespace in headers
 // using namespace ns3;
 const double SPEED_OF_LIGHT = 299792458.0; // in meters per second
+
+struct NodeComponents {
+    ns3::Ptr<ns3::energy::EnergySource> energySource;
+    ns3::Ptr<ns3::energy::EnergyHarvester> energyHarvester;
+    ns3::Ptr<ns3::energy::DeviceEnergyModel> deviceEnergyModel;
+    ns3::Ptr<ns3::WifiRadioEnergyModel> wifiRadioEnergyModel;
+    ns3::Ptr<ns3::WifiNetDevice> wifiNetDevice;
+    ns3::Ptr<ns3::MobilityModel> mobilityModel;
+};
+
+struct EnergyInstants {
+    double currentPower;
+    double currentDuration;
+    uint64_t currentPackets;
+    uint64_t currentBytes;
+    double currentEnergy;
+    double currentEnergyConsumption;
+    double totalEnergyConsumption;
+};
+struct InstantCounts {
+    uint64_t packets;
+    uint64_t bytes;
+    double power;
+    double duration;
+    double energy;
+};
+struct TotalCounts{
+    uint64_t totalPackets;
+    uint64_t totalBytes;
+    double totalPower;
+    double totalDuration;
+    double totalEnergy;
+};
+struct Counters{
+    double timestamp;
+    InstantCounts instantTxCounts;
+	InstantCounts instantRxCounts;
+    TotalCounts totalTxCounts;
+	TotalCounts totalRxCoutns;
+    EnergyInstants energyTxInstants;
+	EnergyInstants energyRxInstants;
+};
+
 #endif // SIMULATION_4_INCLUDES_H
