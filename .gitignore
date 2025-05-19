@@ -1,0 +1,14 @@
+.vscode/**
+build**/**
+build/**
+logs**/**
+CMakeFiles/**
+ns**/**
+.vs/**
+*.csv
+*.png
+*.yuv
+temp**/**
+*.log
+*.cmake
+*.yuv
